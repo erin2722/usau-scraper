@@ -10,3 +10,13 @@ USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (
 about high school, college, and club ultimate frisbee teams. Right now, there is no easy way to access this data. USAU scraper solves this problem by
 scraping the USAU website for data and therefore allowing other developers to easily use the data on the USAU site. This project will open the door to 
 more data analytic projects concerning ultimate frisbee.
+
+### Features (MVP)
+- A function that, given a team name and a season, returns their schedule and record.
+- A function that, given a team name and a season, returns its roster.
+- A function that, given a tournament name, returns the results of the tournament.
+### Additional features
+- A function that, given a college division, returns the current standings of that division.
+- An additional plugin to ultimate frisbee rankings that shows how team ranking has changed over time.
+- An additional plugin to ultiworld to show recent articles given a team name or college division.
+- More features tbd!
