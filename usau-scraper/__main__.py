@@ -1,4 +1,4 @@
-from scrape_team_ids import buildTeamIdDict
+from teamScraper import queryTeam
 
 if __name__ == "__main__":
-    buildTeamIdDict()
+    queryTeam(schoolName="Columbia", competitionLevel="College")
