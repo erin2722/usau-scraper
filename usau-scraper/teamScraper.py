@@ -26,23 +26,52 @@ Output:
             website,
             facebook,
             twitter,
-            wins,
-            losses,
         },
         ...
     ]
 }
 
 '''
-def getTeamInfo(
-    schoolName = None, 
-    teamName = None, 
-    genderDivision = None, 
-    state = None, 
-    competitionLevel = None, 
-    competitionDivision = None, 
-    teamDesignation = None):
-    pass
+def getTeamInfo(**kwargs):
+    teams = queryTeam(kwargs)
+
+    if len(teams) == 0:
+        return { "res": "NOTFOUND" }
+
+    with requests.Session() as req:
+        res = {
+            "res": "OK",
+            "teams": []
+        }
+
+        for _, endpoint in teams.items():
+            r = req.get(BASE_URL + endpoint)
+            soup = BeautifulSoup(r.content, 'html.parser')
+
+            team = fillInBasicInfo(soup)
+
+            coaches = soup.find(id="CT_Main_0_ucTeamDetails_dlHeadCoach")
+            if not coaches == None:
+                team["coaches"] = re.sub(r"[^a-zA-Z0-9 - , ]", "", coaches.find("dd").getText())
+
+            website = soup.find(id="CT_Main_0_ucTeamDetails_dlWebsite")
+            if not website == None:
+                team["website"] = website.find("a").getText()
+
+            facebook = soup.find(id="CT_Main_0_ucTeamDetails_dlFacebook")
+            if not facebook == None:
+                team["facebook"] = facebook.find("a").getText()
+            
+            twitter = soup.find(id="CT_Main_0_ucTeamDetails_dlTwitter")
+            if not twitter == None:
+                team["twitter"] = twitter.find("a").getText()
+        
+            res["teams"].append(team)
+        
+        print(json.dumps(res,indent=4))
+
+        return res
+
 
 '''
 getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query
@@ -60,35 +89,82 @@ Output:
             genderDivision,
             wins,
             losses,
-            tournaments: [
-                {
-                    name,
+            tournaments: {
+                name: {
                     games: [
                         {
                             date,
                             score,
-                            opponent
+                            opponentCollege,
+                            opponentTeamPage
                         },
                         ...
                     ]
                 },
                 ...
-            ]
+            },
         },
         ...
     ]
 }
 '''
-def getTeamSchedule(
-    schoolName = None, 
-    teamName = None, 
-    genderDivision = None, 
-    state = None, 
-    competitionLevel = None, 
-    competitionDivision = None, 
-    teamDesignation = None):
-    pass
+def getTeamSchedule(**kwargs):
+    teams = queryTeam(kwargs)
 
+    if len(teams) == 0:
+        return { "res": "NOTFOUND" }
+
+    with requests.Session() as req:
+        res = {
+            "res": "OK",
+            "teams": []
+        }
+
+        for _, endpoint in teams.items():
+            print(endpoint)
+            r = req.get(BASE_URL + endpoint)
+            soup = BeautifulSoup(r.content, 'html.parser')
+
+            team = fillInBasicInfo(soup)
+            team["wins"] = 0
+            team["losses"] = 0
+            team["tournaments"] = {}
+
+            scheduleTable = soup.find(id="CT_Right_0_gvEventScheduleScores")
+
+            if scheduleTable == None:
+                res["teams"].append(team)
+                continue
+
+            scheduleTableRows = scheduleTable.findAll("tr")
+            currentTournament = ""
+
+            for row in scheduleTableRows:
+                cells = row.findAll("td")
+                
+                if len(cells) == 1:
+                    currentTournament = cells[0].find("a").getText()
+                    team["tournaments"][currentTournament] = { "games": [] }
+                else:
+                    date = cells[0].find("span").getText()
+                    score = cells[1].find("a").getText()
+                    oppCollege = cells[2].find("a").getText()
+                    oppHref = cells[2].find("a").get("href")
+
+                    game = { "date": date, "score": score, "opponentCollege": oppCollege, "opponentHref": oppHref }
+
+                    if cells[1].get("class")[0] == "win":
+                        team["wins"] += 1
+                    elif cells[1].get("class")[0] == "loss":
+                        team["losses"] += 1
+
+                    team["tournaments"][currentTournament]["games"].append(game)
+        
+            res["teams"].append(team)
+
+        print(json.dumps(res, indent=4))
+
+        return res
 
 '''
 getTeamRoster() returns the roster of the first 10 teams matching the query
@@ -126,21 +202,26 @@ Output:
     ]
 }
 '''
-def getTeamRoster(
-    schoolName = None, 
-    teamName = None, 
-    genderDivision = None, 
-    state = None, 
-    competitionLevel = None, 
-    competitionDivision = None, 
-    teamDesignation = None):
+def getTeamRoster(**kwargs):
     pass
 
+def fillInBasicInfo(soup):
+    team = {}
+    schoolTeam = soup.find(class_="profile_info").find("h4").getText()
+    schoolTeamList = schoolTeam.split(" (")
 
-def queryTeam(**kwargs):
+    team["schoolName"] = schoolTeamList[0].strip()
+    team["teamName"] = schoolTeamList[1].strip()[:-1]
+    team["competitionLevel"] = soup.find(id="CT_Main_0_ucTeamDetails_dlCompetitionLevel").find("dd").getText()    
+    team["genderDivision"] = soup.find(id="CT_Main_0_ucTeamDetails_dlGenderDivision").find("dd").getText()
+    team["location"] = soup.find(id="CT_Main_0_ucTeamDetails_dlCity").getText().strip()
+
+    return team
+
+def queryTeam(args):
     with requests.Session() as req:
         endpoint = "/teams/events/rankings/"
-        data = setArgs(kwargs)
+        data = setArgs(args)
         teamDict = {}
         r = req.get(BASE_URL + endpoint)
         soup = BeautifulSoup(r.content, 'html.parser')

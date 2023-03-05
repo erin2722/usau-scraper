@@ -1,4 +1,6 @@
-from teamScraper import queryTeam
+from teamScraper import getTeamInfo, getTeamSchedule
 
 if __name__ == "__main__":
-    queryTeam(schoolName="Columbia", competitionLevel="College")
+    # getTeamInfo(schoolName="Columbia", competitionLevel="College")
+
+    getTeamSchedule(schoolName="Columbia", competitionLevel="College")
