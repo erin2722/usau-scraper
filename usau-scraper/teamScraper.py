@@ -4,7 +4,6 @@ import pandas as pd
 import re
 import json
 
-
 BASE_URL = "https://play.usaultimate.org"
 
 '''
@@ -30,7 +29,6 @@ Output:
         ...
     ]
 }
-
 '''
 def getTeamInfo(**kwargs):
     teams = queryTeam(kwargs)
@@ -121,7 +119,6 @@ def getTeamSchedule(**kwargs):
         }
 
         for _, endpoint in teams.items():
-            print(endpoint)
             r = req.get(BASE_URL + endpoint)
             soup = BeautifulSoup(r.content, 'html.parser')
 
@@ -180,8 +177,6 @@ Output:
             teamName,
             competitionLevel,
             genderDivision,
-            wins,
-            losses,
             roster: [
                 {
                     no,
@@ -190,10 +185,6 @@ Output:
                     position,
                     year,
                     height,
-                    points,
-                    assists,
-                    ds,
-                    turns
                 },
                 ...
             ]
@@ -203,7 +194,46 @@ Output:
 }
 '''
 def getTeamRoster(**kwargs):
-    pass
+    teams = queryTeam(kwargs)
+
+    if len(teams) == 0:
+        return { "res": "NOTFOUND" }
+
+    with requests.Session() as req:
+        res = {
+            "res": "OK",
+            "teams": []
+        }
+
+        for _, endpoint in teams.items():
+            r = req.get(BASE_URL + endpoint)
+            soup = BeautifulSoup(r.content, 'html.parser')
+
+            team = fillInBasicInfo(soup)
+
+            team["roster"] = []
+
+            rosterTable = soup.find(id="CT_Main_0_ucTeamDetails_gvList")
+
+            rosterRows = rosterTable.findAll("tr")
+
+            for row in rosterRows[1:]:
+                cells = row.findAll("td")
+                player = {}
+                player["no"] = cells[0].getText()
+                player["name"] = cells[1].getText()
+                player["pronouns"] = cells[2].getText().strip()
+                player["position"] = cells[3].getText().strip()
+                player["year"] = cells[4].getText().strip()
+                player["height"] = cells[5].getText().strip()
+
+                team["roster"].append(player)
+
+
+            res["teams"].append(team)
+
+        print(json.dumps(res, indent=4))
+        return res
 
 def fillInBasicInfo(soup):
     team = {}
