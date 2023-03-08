@@ -2,7 +2,7 @@
 
 The USAU scraper is a data collector that allows developers to easily aggregate and use team results, rosters, and schedule data from the [USAU website](https://play.usaultimate.org/events/tournament/?ViewAll=false&IsLeagueType=false&IsClinic=false&FilterByCategory=AE).
 
-![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper)
+![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper) ![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=blue)
 
 ## Overview
 
@@ -10,17 +10,17 @@ USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (
 
 ### Features (MVP)
 
-[x] A function that, given a team name, returns basic information about them.
-[x] A function that, given a team name, returns their schedule and record.
-[x] A function that, given a team name, returns its roster.
-[] A function that, given a tournament name, returns the results of the tournament.
+- [x] A function that, given a team name, returns basic information about them.
+- [x] A function that, given a team name, returns their schedule and record.
+- [x] A function that, given a team name, returns its roster.
+- [ ] A function that, given a tournament name, returns the results of the tournament.
 
 ### Additional features
 
-[] A function that, given a college division, returns the current standings of that division.
-[] An additional plugin to ultiworld to show current top 25 teams.
-[] An additional plugin to ultiworld to show recent articles given a team name or college division.
-[] More features tbd!
+- [ ] A function that, given a college division, returns the current standings of that division.
+- [ ] An additional plugin to ultiworld to show current top 25 teams.
+- [ ] An additional plugin to ultiworld to show recent articles given a team name or college division.
+- [ ] More features tbd!
 
 ### Possible Applications
 
