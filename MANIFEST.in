@@ -1,4 +1,4 @@
-graft example_project_python
+graft usau_scraper
 
 include LICENSE
 include README.md
