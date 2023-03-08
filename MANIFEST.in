@@ -2,6 +2,7 @@ graft usau_scraper
 
 include LICENSE
 include README.md
+include CONTRIBUTING.md
 
 include .bumpversion.cfg
 include pyproject.toml
