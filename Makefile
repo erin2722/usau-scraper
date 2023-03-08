@@ -14,14 +14,14 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check usau-scraper setup.py
-	python -m flake8 usau-scraper setup.py
+	python -m black --check usau_scraper setup.py
+	python -m flake8 usau_scraper setup.py
 
 # Alias
 lints: lint
 
 format:  ## run autoformatting with black
-	python -m black usau-scraper/ setup.py
+	python -m black usau_scraper/ setup.py
 
 # alias
 fix: format
@@ -33,16 +33,16 @@ check:  ## check assets for packaging
 checks: check
 
 annotate:  ## run type checking
-	python -m mypy ./usau-scraper
+	python -m mypy ./usau_scraper
 
 #########
 # TESTS #
 #########
 test: ## clean and run unit tests
-	python -m pytest -v usau-scraper/tests
+	python -m pytest -v usau_scraper/tests
 
 coverage:  ## clean and run unit tests with coverage
-	python -m pytest -v usau-scraper/tests --cov=usau-scraper --cov-branch --cov-fail-under=75 --cov-report term-missing
+	python -m pytest -v usau_scraper/tests --cov=usau_scraper --cov-branch --cov-fail-under=75 --cov-report term-missing
 
 # Alias
 tests: test

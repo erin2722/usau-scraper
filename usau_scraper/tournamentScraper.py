@@ -1,8 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-import re
-import json
+# import requests
+# from bs4 import BeautifulSoup
+# import pandas as pd
+# import re
+# import json
 
 
 '''
@@ -42,6 +42,8 @@ Output:
 
 
 '''
+
+
 def getTournamentPoolPlayResults():
     pass
 
@@ -49,7 +51,7 @@ def getTournamentPoolPlayResults():
 '''
 Input: eventName, competitionLevel, genderDivision, competitionDivision, state
 
-Output: 
+Output:
 {
     res: OK, NOTFOUND
     tournaments: [
@@ -61,5 +63,7 @@ Output:
         ...
     ]
 '''
+
+
 def getTournamentWinner():
     pass
