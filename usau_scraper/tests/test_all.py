@@ -84,20 +84,19 @@ def test_basic_info():
 
 # ------------------ getTeamInfo Tests ------------------
 def test_get_team_info():
-    teams = getTeamInfo(schoolName="Virginia", teamName="Hydra")
+    teams = getTeamInfo(schoolName="North Carolina", teamName="Pleiades")
 
     expectedTeamInfo = [
         {
-            "schoolName": "Virginia",
-            "teamName": "Hydra",
+            "schoolName": "North Carolina",
+            "teamName": "Pleiades",
             "competitionLevel": "College",
             "genderDivision": "Women",
-            "location": "Charlottesville, Virginia",
-            "coaches": "Emma Colavincenzo Head Coach",
-            "website": '''https://sites.google.com/a/virginia.edu
-                /womens-ultimate-frisbee-club-at-the-university-of-virginia/''',
-            "facebook": "https://www.facebook.com/HydraNFriends/",
-            "twitter": "https://twitter.com/HydraNFriends",
+            "location": "Chapel Hill, North Carolina",
+            "coaches": "Jessica Jones Head CoachMary Rippe",
+            "website": "http://www.uncpleiades.com",
+            "facebook": "https://www.facebook.com/unc.pleiades/",
+            "twitter": "https://twitter.com/UNC_Pleiades/",
         }
     ]
 
