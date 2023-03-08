@@ -5,7 +5,6 @@ from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule,
 
 # ------------------------------- UNIT TESTS -------------------------------
 
-
 # ------------------ queryTeam Tests ------------------
 def test_query_team_multiple_teams():
     team_results = queryTeam({"schoolName": "Columbia", "competitionLevel": "College", "genderDivision": 2})
