@@ -2,7 +2,10 @@
 
 The USAU scraper is a data collector that allows developers to easily aggregate and use team results, rosters, and schedule data from the [USAU website](https://play.usaultimate.org/events/tournament/?ViewAll=false&IsLeagueType=false&IsClinic=false&FilterByCategory=AE).
 
-![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper) ![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=blue)
+![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper) 
+![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=blue)
+[![Build Status](https://github.com/erin2722/usau-scraper/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/ColumbiaOSS/example-project-python/actions?query=workflow%3A%22Build+Status%22)
+[![codecov](https://codecov.io/gh/erin2722/usau-scraper/branch/main/graph/badge.svg)](https://codecov.io/gh/erin2722/usau-scraper)
 
 ## Overview
 
