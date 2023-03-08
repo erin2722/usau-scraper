@@ -257,7 +257,7 @@ def queryTeam(args):
         r = req.get(BASE_URL + endpoint)
         soup = BeautifulSoup(r.content, 'html.parser')
 
-        # alternatively, if a teamID is passed in, skip this step
+        # TODO: alternatively, if a teamID is passed in, skip this step
         data = setArgs(args)
         data['__VIEWSTATE'] = soup.find("input", id="__VIEWSTATE").get("value")
         data['__VIEWSTATEGENERATOR'] = soup.find("input", id="__VIEWSTATEGENERATOR").get("value")
