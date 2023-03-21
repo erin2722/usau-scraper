@@ -11,6 +11,108 @@ The USAU scraper is a data collector that allows developers to easily aggregate 
 
 USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (which is notoriously hard to navigate) contains all of the information about high school, college, and club ultimate frisbee teams. Right now, there is no easy way to access this data. USAU scraper solves this problem by scraping the USAU website for data and therefore allowing other developers to easily use the data on the USAU site. This project will open the door to more data analytic projects concerning ultimate frisbee.
 
+## Installation
+
+`pip install usau-scraper`
+
+## How to Use
+
+After installing the library, there are currently 3 functions available for use.
+
+Simply `import * from usau-scraper`, and then call any of the following functions:
+
+**getTeamInfo()**
+`getTeamInfo()` returns all information about the first 10 teams matching the query
+
+Input: schoolName, teamName, genderDivision, state, competitionLevel,
+    competitionDivision, teamDesignation as named arguments
+
+Output:
+{
+    res: OK, NOTFOUND
+    teams: [
+        {
+            schoolName,
+            teamName,
+            competitionLevel,
+            genderDivision,
+            location,
+            coaches,
+            website,
+            facebook,
+            twitter,
+        },
+        ...
+    ]
+}
+
+**getTeamSchedule**
+`getTeamSchedule()` returns the season schedule and record of the first 10 teams matching the query
+
+Input: schoolName, teamName, genderDivision, state, competitionLevel,
+    competitionDivision, teamDesignation as named arguments
+
+Output:
+{
+    res: OK, NOTFOUND
+    teams: [
+        {
+            schoolName,
+            teamName,
+            competitionLevel,
+            genderDivision,
+            wins,
+            losses,
+            tournaments: {
+                name: {
+                    games: [
+                        {
+                            date,
+                            score,
+                            opponentCollege,
+                            opponentTeamPage
+                        },
+                        ...
+                    ]
+                },
+                ...
+            },
+        },
+        ...
+    ]
+}
+
+**getTeamRoster**
+`getTeamRoster()` returns the roster of the first 10 teams matching the query
+
+Input: schoolName, teamName, genderDivision, state, competitionLevel,
+    competitionDivision, teamDesignation as named arguments
+
+Output:
+{
+    res: OK, NOTFOUND
+    teams: [
+        {
+            schoolName,
+            teamName,
+            competitionLevel,
+            genderDivision,
+            roster: [
+                {
+                    no,
+                    name,
+                    pronouns,
+                    position,
+                    year,
+                    height,
+                },
+                ...
+            ]
+        },
+        ...
+    ]
+}
+
 ### Features (MVP)
 
 - [x] A function that, given a team name, returns basic information about them.
