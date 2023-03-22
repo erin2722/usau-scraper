@@ -32,7 +32,7 @@ Simply `import * from usau-scraper`, and then call any of the following function
 
 **Output:**
 
-```json
+```
 {
     res: OK, NOTFOUND
     teams: [
@@ -60,7 +60,7 @@ Simply `import * from usau-scraper`, and then call any of the following function
 
 **Output:**
 
-```json
+```
 {
     res: OK, NOTFOUND
     teams: [
@@ -99,7 +99,7 @@ Simply `import * from usau-scraper`, and then call any of the following function
 
 **Output:**
 
-```json
+```
 {
     res: OK, NOTFOUND
     teams: [
