@@ -2,9 +2,12 @@
 
 The USAU scraper is a data collector that allows developers to easily aggregate and use team results, rosters, and schedule data from the [USAU website](https://play.usaultimate.org/events/tournament/?ViewAll=false&IsLeagueType=false&IsClinic=false&FilterByCategory=AE).
 
-![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper) 
-![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=blue)
+![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper?color=f72d2d) 
+
+[![PyPI](https://img.shields.io/pypi/v/usau-scraper?color=2d2df7)](https://pypi.org/project/usau-scraper/)
+
 [![Build Status](https://github.com/erin2722/usau-scraper/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/ColumbiaOSS/example-project-python/actions?query=workflow%3A%22Build+Status%22)
+![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=f79502)
 [![codecov](https://codecov.io/gh/erin2722/usau-scraper/branch/main/graph/badge.svg)](https://codecov.io/gh/erin2722/usau-scraper)
 
 ## Overview
@@ -17,17 +20,19 @@ USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (
 
 ## How to Use
 
-After installing the library, there are currently 3 functions available for use.
+After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.
 
 Simply `import * from usau-scraper`, and then call any of the following functions:
 
-**getTeamInfo()**
+### getTeamInfo()
+
 `getTeamInfo()` returns all information about the first 10 teams matching the query
 
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
+**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
-Output:
+**Output:**
+
+```json
 {
     res: OK, NOTFOUND
     teams: [
@@ -45,14 +50,17 @@ Output:
         ...
     ]
 }
+```
 
-**getTeamSchedule**
+### getTeamSchedule
+
 `getTeamSchedule()` returns the season schedule and record of the first 10 teams matching the query
 
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
+**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
-Output:
+**Output:**
+
+```json
 {
     res: OK, NOTFOUND
     teams: [
@@ -81,14 +89,17 @@ Output:
         ...
     ]
 }
+```
 
-**getTeamRoster**
+### getTeamRoster
+
 `getTeamRoster()` returns the roster of the first 10 teams matching the query
 
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
+**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
-Output:
+**Output:**
+
+```json
 {
     res: OK, NOTFOUND
     teams: [
@@ -112,21 +123,22 @@ Output:
         ...
     ]
 }
+```
 
-### Features (MVP)
+## Features (MVP)
 
 - [x] A function that, given a team name, returns basic information about them.
 - [x] A function that, given a team name, returns their schedule and record.
 - [x] A function that, given a team name, returns its roster.
 - [ ] A function that, given a tournament name, returns the results of the tournament.
 
-### Additional features
+## Additional features
 
 - [ ] A function that, given a college division, returns the current standings of that division.
 - [ ] An additional plugin to ultiworld to show current top 25 teams.
 - [ ] An additional plugin to ultiworld to show recent articles given a team name or college division.
 - [ ] More features tbd!
 
-### Possible Applications
+## Possible Applications
 
 - A seeding helper that, given a list of team names, returns their records for the season and their record against top 25 teams.
