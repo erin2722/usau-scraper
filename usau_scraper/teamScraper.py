@@ -30,6 +30,8 @@ Output:
     ]
 }
 '''
+
+
 def getTeamInfo(**kwargs):
     teams = queryTeam(kwargs)
 
@@ -104,6 +106,8 @@ Output:
     ]
 }
 '''
+
+
 def getTeamSchedule(**kwargs):
     teams = queryTeam(kwargs)
 
@@ -191,6 +195,8 @@ Output:
     ]
 }
 '''
+
+
 def getTeamRoster(**kwargs):
     teams = queryTeam(kwargs)
 
