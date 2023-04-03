@@ -66,18 +66,18 @@ major:
 #   DOCS  #
 ###########
 docs: 
-    $(MAKE) -C docs/ clean
-    $(MAKE) -C docs/ html
+	$(MAKE) -C docs/ clean
+	$(MAKE) -C docs/ html
 
 pages: 
-    rm -rf $(TMPREPO)
-    git clone -b gh-pages git@github.com:pmorissette/bt.git $(TMPREPO)
-    rm -rf $(TMPREPO)/*
-    cp -r docs/build/html/* $(TMPREPO)
-    cd $(TMPREPO);\
-    git add -A ;\
-    git commit -a -m 'auto-updating docs' ;\
-    git push
+	rm -rf $(TMPREPO)
+	git clone -b gh-pages https://github.com/erin2722/usau-scraper.git $(TMPREPO)
+	rm -rf $(TMPREPO)/*
+	cp -r docs/build/html/* $(TMPREPO)
+	cd $(TMPREPO);\
+	git add -A ;\
+	git commit -a -m 'auto-updating docs' ;\
+	git push
 
 ########
 # DIST #
