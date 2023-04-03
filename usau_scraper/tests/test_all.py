@@ -93,7 +93,7 @@ def test_get_team_info():
             "competitionLevel": "College",
             "genderDivision": "Women",
             "location": "Chapel Hill, North Carolina",
-            "coaches": "Jessica Jones Head CoachMary Rippe",
+            "coaches": "Jessica Jones Head CoachMary Rippe Elisabeth Parker",
             "website": "http://www.uncpleiades.com",
             "facebook": "https://www.facebook.com/unc.pleiades/",
             "twitter": "https://twitter.com/UNC_Pleiades/",
