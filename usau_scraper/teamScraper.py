@@ -8,7 +8,6 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-import json
 
 BASE_URL = "https://play.usaultimate.org"
 
@@ -79,8 +78,6 @@ def getTeamInfo(**kwargs):
                 team["twitter"] = twitter.find("a").getText()
 
             res["teams"].append(team)
-
-        print(json.dumps(res, indent=4))
 
         return res
 
@@ -179,8 +176,6 @@ def getTeamSchedule(**kwargs):
 
             res["teams"].append(team)
 
-        print(json.dumps(res, indent=4))
-
         return res
 
 
@@ -259,7 +254,6 @@ def getTeamRoster(**kwargs):
 
             res["teams"].append(team)
 
-        print(json.dumps(res, indent=4))
         return res
 
 
@@ -296,8 +290,6 @@ def queryTeam(args):
 
         for link in links:
             teamDict[link.getText()] = link.get("href")
-
-        print(json.dumps(teamDict, indent=4))
 
         return teamDict
 

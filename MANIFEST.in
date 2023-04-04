@@ -11,6 +11,7 @@ include Makefile
 recursive-include docs *.bat
 recursive-include docs *.rst
 recursive-include docs *.py
+recursive-include examples *.ipynb
 recursive-include docs Makefile
 
 prune .github
