@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to usau-scraper’s documentation! &mdash; usau-scraper 0.1.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            usau-scraper
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to usau-scraper’s documentation!</a><ul>
+<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamInfo"><code class="docutils literal notranslate"><span class="pre">getTeamInfo()</span></code></a></li>
+<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamRoster"><code class="docutils literal notranslate"><span class="pre">getTeamRoster()</span></code></a></li>
+<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamSchedule"><code class="docutils literal notranslate"><span class="pre">getTeamSchedule()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">usau-scraper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to usau-scraper’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-usau-scraper-s-documentation">
+<h1>Welcome to usau-scraper’s documentation!<a class="headerlink" href="#welcome-to-usau-scraper-s-documentation" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-usau_scraper.teamScraper"></span><span class="target" id="module-teamScraper"></span><dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamInfo">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTeamInfo() returns all information about the first 10 teams matching the query</p>
+<dl>
+<dt>Args: </dt><dd><p>schoolName 
+teamName
+genderDivision 
+state
+competitionLevel
+competitionDivision 
+teamDesignation</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">schoolName</span><span class="p">,</span>
+            <span class="n">teamName</span><span class="p">,</span>
+            <span class="n">competitionLevel</span><span class="p">,</span>
+            <span class="n">genderDivision</span><span class="p">,</span>
+            <span class="n">location</span><span class="p">,</span>
+            <span class="n">coaches</span><span class="p">,</span>
+            <span class="n">website</span><span class="p">,</span>
+            <span class="n">facebook</span><span class="p">,</span>
+            <span class="n">twitter</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamRoster">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamRoster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamRoster" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTeamRoster() returns the roster of the first 10 teams matching the query</p>
+<dl>
+<dt>Args: </dt><dd><p>schoolName, 
+teamName, 
+genderDivision, 
+state, 
+competitionLevel,
+competitionDivision, 
+teamDesignation</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results: </dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">schoolName</span><span class="p">,</span>
+            <span class="n">teamName</span><span class="p">,</span>
+            <span class="n">competitionLevel</span><span class="p">,</span>
+            <span class="n">genderDivision</span><span class="p">,</span>
+            <span class="n">roster</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="n">no</span><span class="p">,</span>
+                    <span class="n">name</span><span class="p">,</span>
+                    <span class="n">pronouns</span><span class="p">,</span>
+                    <span class="n">position</span><span class="p">,</span>
+                    <span class="n">year</span><span class="p">,</span>
+                    <span class="n">height</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="o">...</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamSchedule">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamSchedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamSchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query</p>
+<dl>
+<dt>Args: </dt><dd><p>schoolName, 
+teamName, 
+genderDivision, 
+state, 
+competitionLevel,
+competitionDivision, 
+teamDesignation</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results: </dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">schoolName</span><span class="p">,</span>
+            <span class="n">teamName</span><span class="p">,</span>
+            <span class="n">competitionLevel</span><span class="p">,</span>
+            <span class="n">genderDivision</span><span class="p">,</span>
+            <span class="n">wins</span><span class="p">,</span>
+            <span class="n">losses</span><span class="p">,</span>
+            <span class="n">tournaments</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">name</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="n">games</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="n">date</span><span class="p">,</span>
+                            <span class="n">score</span><span class="p">,</span>
+                            <span class="n">opponentCollege</span><span class="p">,</span>
+                            <span class="n">opponentTeamPage</span>
+                        <span class="p">},</span>
+                        <span class="o">...</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="o">...</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Erin McNulty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
