@@ -23,7 +23,7 @@ USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (
 
 After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.
 
-Simply `import * from usau-scraper`, and then call any of the following functions:
+Simply `import * from usau_scraper`, and then call any of the following functions:
 
 ### getTeamInfo()
 
