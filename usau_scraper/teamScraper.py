@@ -8,7 +8,6 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-import json
 
 BASE_URL = "https://play.usaultimate.org"
 
