@@ -11,6 +11,16 @@ Welcome to usau-scraper's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+Installation
+===================================
+:code:`pip install usau-scraper`
+
+How to Use
+===================================
+After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.
+
+Simply :code:`import * from usau_scraper`, and then call any of the following functions:
+
 .. automodule:: usau_scraper.teamScraper
    :members:
    :show-inheritance:
