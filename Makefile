@@ -65,7 +65,9 @@ major:
 ###########
 #   DOCS  #
 ###########
-docs: 
+TMPREPO = /tmp/docs/usau-scraper
+
+docs:
 	$(MAKE) -C docs/ clean
 	$(MAKE) -C docs/ html
 

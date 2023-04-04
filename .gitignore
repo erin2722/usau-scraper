@@ -122,7 +122,10 @@ venv.bak/
 
 # mkdocs documentation
 /site
-docs/build
+
+docs/_build/
+docs/_static/
+docs/_templates/
 
 
 # mypy

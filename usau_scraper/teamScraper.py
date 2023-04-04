@@ -1,3 +1,10 @@
+"""
+.. module:: teamScraper
+   :synopsis: A module for scraping team schedule and roster information.
+
+.. moduleauthor:: Erin McNulty
+"""
+
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -5,34 +12,42 @@ import json
 
 BASE_URL = "https://play.usaultimate.org"
 
-'''
-getTeamInfo() returns all information about the first 10 teams matching the query
-
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
-
-Output:
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            location,
-            coaches,
-            website,
-            facebook,
-            twitter,
-        },
-        ...
-    ]
-}
-'''
-
 
 def getTeamInfo(**kwargs):
+    '''getTeamInfo() returns all information about the first 10 teams matching the query
+
+    Args: 
+        schoolName 
+        teamName
+        genderDivision 
+        state
+        competitionLevel
+        competitionDivision 
+        teamDesignation
+
+    Returns:
+        results:
+            ::
+            
+                {
+                    res: OK, NOTFOUND
+                    teams: [
+                        {
+                            schoolName,
+                            teamName,
+                            competitionLevel,
+                            genderDivision,
+                            location,
+                            coaches,
+                            website,
+                            facebook,
+                            twitter,
+                        },
+                        ...
+                    ]
+                }
+    
+    '''
     teams = queryTeam(kwargs)
 
     if len(teams) == 0:
@@ -70,45 +85,51 @@ def getTeamInfo(**kwargs):
         return res
 
 
-'''
-getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query
+def getTeamSchedule(**kwargs):
+    '''getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query
 
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
+    Args: 
+        schoolName, 
+        teamName, 
+        genderDivision, 
+        state, 
+        competitionLevel,
+        competitionDivision, 
+        teamDesignation
 
-Output:
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            wins,
-            losses,
-            tournaments: {
-                name: {
-                    games: [
+    Returns:
+        results: 
+            ::
+            
+                {
+                    res: OK, NOTFOUND
+                    teams: [
                         {
-                            date,
-                            score,
-                            opponentCollege,
-                            opponentTeamPage
+                            schoolName,
+                            teamName,
+                            competitionLevel,
+                            genderDivision,
+                            wins,
+                            losses,
+                            tournaments: {
+                                name: {
+                                    games: [
+                                        {
+                                            date,
+                                            score,
+                                            opponentCollege,
+                                            opponentTeamPage
+                                        },
+                                        ...
+                                    ]
+                                },
+                                ...
+                            },
                         },
                         ...
                     ]
-                },
-                ...
-            },
-        },
-        ...
-    ]
-}
+                }
 '''
-
-
-def getTeamSchedule(**kwargs):
     teams = queryTeam(kwargs)
 
     if len(teams) == 0:
@@ -164,40 +185,47 @@ def getTeamSchedule(**kwargs):
         return res
 
 
-'''
-getTeamRoster() returns the roster of the first 10 teams matching the query
-
-Input: schoolName, teamName, genderDivision, state, competitionLevel,
-    competitionDivision, teamDesignation as named arguments
-
-Output:
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            roster: [
-                {
-                    no,
-                    name,
-                    pronouns,
-                    position,
-                    year,
-                    height,
-                },
-                ...
-            ]
-        },
-        ...
-    ]
-}
-'''
-
-
 def getTeamRoster(**kwargs):
+    '''getTeamRoster() returns the roster of the first 10 teams matching the query
+
+    Args: 
+        schoolName, 
+        teamName, 
+        genderDivision, 
+        state, 
+        competitionLevel,
+        competitionDivision, 
+        teamDesignation
+
+    Returns:
+        results: 
+            ::
+
+                {
+                    res: OK, NOTFOUND
+                    teams: [
+                        {
+                            schoolName,
+                            teamName,
+                            competitionLevel,
+                            genderDivision,
+                            roster: [
+                                {
+                                    no,
+                                    name,
+                                    pronouns,
+                                    position,
+                                    year,
+                                    height,
+                                },
+                                ...
+                            ]
+                        },
+                        ...
+                    ]
+                }
+    '''
+
     teams = queryTeam(kwargs)
 
     if len(teams) == 0:
