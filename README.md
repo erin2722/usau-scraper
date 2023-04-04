@@ -5,7 +5,9 @@ The USAU scraper is a data collector that allows developers to easily aggregate 
 ![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper?color=f72d2d)
 
 [![PyPI](https://img.shields.io/pypi/v/usau-scraper?color=2d2df7)](https://pypi.org/project/usau-scraper/)
+
 [![Docs](https://img.shields.io/badge/documentation-gh%20pages-%23fffb03)](https://erin2722.github.io/usau-scraper/)
+[![Collab Example](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erin2722/usau-scraper/blob/docs/examples/USAU_Scraper_Example.ipynb)
 
 [![Build Status](https://github.com/erin2722/usau-scraper/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/ColumbiaOSS/example-project-python/actions?query=workflow%3A%22Build+Status%22)
 ![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=f79502)
