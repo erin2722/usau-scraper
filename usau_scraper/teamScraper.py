@@ -16,19 +16,19 @@ BASE_URL = "https://play.usaultimate.org"
 def getTeamInfo(**kwargs):
     '''getTeamInfo() returns all information about the first 10 teams matching the query
 
-    Args: 
-        schoolName 
+    Args:
+        schoolName
         teamName
-        genderDivision 
+        genderDivision
         state
         competitionLevel
-        competitionDivision 
+        competitionDivision
         teamDesignation
 
     Returns:
         results:
             ::
-            
+
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -46,7 +46,7 @@ def getTeamInfo(**kwargs):
                         ...
                     ]
                 }
-    
+
     '''
     teams = queryTeam(kwargs)
 
@@ -88,19 +88,19 @@ def getTeamInfo(**kwargs):
 def getTeamSchedule(**kwargs):
     '''getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query
 
-    Args: 
-        schoolName, 
-        teamName, 
-        genderDivision, 
-        state, 
+    Args:
+        schoolName,
+        teamName,
+        genderDivision,
+        state,
         competitionLevel,
-        competitionDivision, 
+        competitionDivision,
         teamDesignation
 
     Returns:
-        results: 
+        results:
             ::
-            
+
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -128,8 +128,7 @@ def getTeamSchedule(**kwargs):
                         },
                         ...
                     ]
-                }
-'''
+                }'''
     teams = queryTeam(kwargs)
 
     if len(teams) == 0:
@@ -188,17 +187,17 @@ def getTeamSchedule(**kwargs):
 def getTeamRoster(**kwargs):
     '''getTeamRoster() returns the roster of the first 10 teams matching the query
 
-    Args: 
-        schoolName, 
-        teamName, 
-        genderDivision, 
-        state, 
+    Args:
+        schoolName,
+        teamName,
+        genderDivision,
+        state,
         competitionLevel,
-        competitionDivision, 
+        competitionDivision,
         teamDesignation
 
     Returns:
-        results: 
+        results:
             ::
 
                 {
