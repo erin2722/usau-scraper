@@ -1,4 +1,4 @@
-.. bulk-mv documentation master file, created by
+.. usau-scraper documentation master file, created by
    sphinx-quickstart on Sun Apr  2 21:26:33 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -25,6 +25,31 @@ Simply :code:`import * from usau_scraper`, and then call any of the following fu
    :members:
    :show-inheritance:
 
+Example Usage
+===================================
+After :code:`pip install --upgrade usau-scraper` in your python env:
+
+::
+
+   from usau_scraper import getTeamInfo, getTeamSchedule, getTeamRoster
+
+   # Get a team's basic information
+   print(getTeamInfo(
+      schoolName = 'Columbia', 
+      teamName = 'Baewatch', 
+      genderDivision=2, 
+      state='NY', 
+      competitionLevel='College', 
+      competitionDivision=1, 
+      teamDesignation=1))
+
+   # Get a team's schedule for the current season
+   print(getTeamSchedule(schoolName='Columbia', teamName='Curbside'))
+
+   # Get a team's roster for the current season
+   print(getTeamRoster(schoolName='Columbia', teamName='Curbside'))
+
+Additional usage examples are `in this notebook <https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=rEfGbe_ruqk4>`_.
 
 Indices and tables
 ==================
