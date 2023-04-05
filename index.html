@@ -42,12 +42,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to usau-scraper’s documentation!</a><ul>
+<li><a class="reference internal" href="#">Welcome to usau-scraper’s documentation!</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#how-to-use">How to Use</a><ul>
 <li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamInfo"><code class="docutils literal notranslate"><span class="pre">getTeamInfo()</span></code></a></li>
 <li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamRoster"><code class="docutils literal notranslate"><span class="pre">getTeamRoster()</span></code></a></li>
 <li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamSchedule"><code class="docutils literal notranslate"><span class="pre">getTeamSchedule()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#example-usage">Example Usage</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -79,10 +82,19 @@
 <h1>Welcome to usau-scraper’s documentation!<a class="headerlink" href="#welcome-to-usau-scraper-s-documentation" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<p><code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">usau-scraper</span></code></p>
+</div>
+<div class="section" id="how-to-use">
+<h1>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">¶</a></h1>
+<p>After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.</p>
+<p>Simply <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">usau_scraper</span></code>, and then call any of the following functions:</p>
 <span class="target" id="module-usau_scraper.teamScraper"></span><span class="target" id="module-teamScraper"></span><dl class="py function">
 <dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamInfo">
 <span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamInfo() returns all information about the first 10 teams matching the query</p>
+<dd><p>getTeamInfo() returns all information about the first 20 teams matching the query</p>
 <dl>
 <dt>Args:</dt><dd><p>schoolName
 teamName
@@ -121,7 +133,7 @@ teamDesignation</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamRoster">
 <span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamRoster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamRoster" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamRoster() returns the roster of the first 10 teams matching the query</p>
+<dd><p>getTeamRoster() returns the roster of the first 20 teams matching the query</p>
 <dl>
 <dt>Args:</dt><dd><p>schoolName,
 teamName,
@@ -166,7 +178,7 @@ teamDesignation</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamSchedule">
 <span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamSchedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamSchedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query</p>
+<dd><p>getTeamSchedule() returns the season schedule and record of the first 20 teams matching the query</p>
 <dl>
 <dt>Args:</dt><dd><p>schoolName,
 teamName,
@@ -213,6 +225,30 @@ teamDesignation</p>
 </dl>
 </dd></dl>
 
+</div>
+<div class="section" id="example-usage">
+<h1>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h1>
+<p>After <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">usau-scraper</span></code> in your python env:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">usau_scraper</span> <span class="kn">import</span> <span class="n">getTeamInfo</span><span class="p">,</span> <span class="n">getTeamSchedule</span><span class="p">,</span> <span class="n">getTeamRoster</span>
+
+<span class="c1"># Get a team&#39;s basic information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTeamInfo</span><span class="p">(</span>
+   <span class="n">schoolName</span> <span class="o">=</span> <span class="s1">&#39;Columbia&#39;</span><span class="p">,</span>
+   <span class="n">teamName</span> <span class="o">=</span> <span class="s1">&#39;Baewatch&#39;</span><span class="p">,</span>
+   <span class="n">genderDivision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">state</span><span class="o">=</span><span class="s1">&#39;NY&#39;</span><span class="p">,</span>
+   <span class="n">competitionLevel</span><span class="o">=</span><span class="s1">&#39;College&#39;</span><span class="p">,</span>
+   <span class="n">competitionDivision</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+   <span class="n">teamDesignation</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Get a team&#39;s schedule for the current season</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTeamSchedule</span><span class="p">(</span><span class="n">schoolName</span><span class="o">=</span><span class="s1">&#39;Columbia&#39;</span><span class="p">,</span> <span class="n">teamName</span><span class="o">=</span><span class="s1">&#39;Curbside&#39;</span><span class="p">))</span>
+
+<span class="c1"># Get a team&#39;s roster for the current season</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTeamRoster</span><span class="p">(</span><span class="n">schoolName</span><span class="o">=</span><span class="s1">&#39;Columbia&#39;</span><span class="p">,</span> <span class="n">teamName</span><span class="o">=</span><span class="s1">&#39;Curbside&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Additional usage examples are <a class="reference external" href="https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=rEfGbe_ruqk4">in this notebook</a>.</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
