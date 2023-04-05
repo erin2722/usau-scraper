@@ -13,7 +13,7 @@ BASE_URL = "https://play.usaultimate.org"
 
 
 def getTeamInfo(**kwargs):
-    '''getTeamInfo() returns all information about the first 10 teams matching the query
+    '''getTeamInfo() returns all information about the first 20 teams matching the query
 
     Args:
         schoolName
@@ -83,7 +83,7 @@ def getTeamInfo(**kwargs):
 
 
 def getTeamSchedule(**kwargs):
-    '''getTeamSchedule() returns the season schedule and record of the first 10 teams matching the query
+    '''getTeamSchedule() returns the season schedule and record of the first 20 teams matching the query
 
     Args:
         schoolName,
@@ -180,7 +180,7 @@ def getTeamSchedule(**kwargs):
 
 
 def getTeamRoster(**kwargs):
-    '''getTeamRoster() returns the roster of the first 10 teams matching the query
+    '''getTeamRoster() returns the roster of the first 20 teams matching the query
 
     Args:
         schoolName,
