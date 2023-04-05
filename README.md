@@ -7,7 +7,7 @@ The USAU scraper is a data collector that allows developers to easily aggregate 
 [![PyPI](https://img.shields.io/pypi/v/usau-scraper?color=2d2df7)](https://pypi.org/project/usau-scraper/)
 
 [![Docs](https://img.shields.io/badge/documentation-gh%20pages-%23fffb03)](https://erin2722.github.io/usau-scraper/)
-[![Collab Example](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erin2722/usau-scraper/blob/docs/examples/USAU_Scraper_Example.ipynb)
+[![Collab Example](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb)
 
 [![Build Status](https://github.com/erin2722/usau-scraper/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/ColumbiaOSS/example-project-python/actions?query=workflow%3A%22Build+Status%22)
 ![Open Issues](https://img.shields.io/github/issues/erin2722/usau-scraper?color=f79502)
@@ -29,7 +29,7 @@ Simply `import * from usau_scraper`, and then call any of the following function
 
 ### getTeamInfo()
 
-`getTeamInfo()` returns all information about the first 10 teams matching the query
+`getTeamInfo()` returns all information about the first 20 teams matching the query
 
 **Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
@@ -57,7 +57,7 @@ Simply `import * from usau_scraper`, and then call any of the following function
 
 ### getTeamSchedule
 
-`getTeamSchedule()` returns the season schedule and record of the first 10 teams matching the query
+`getTeamSchedule()` returns the season schedule and record of the first 20 teams matching the query
 
 **Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
@@ -96,7 +96,7 @@ Simply `import * from usau_scraper`, and then call any of the following function
 
 ### getTeamRoster
 
-`getTeamRoster()` returns the roster of the first 10 teams matching the query
+`getTeamRoster()` returns the roster of the first 20 teams matching the query
 
 **Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
 
@@ -127,6 +127,32 @@ Simply `import * from usau_scraper`, and then call any of the following function
     ]
 }
 ```
+
+## Example Usage
+
+After `pip install --upgrade usau-scraper` in your python env:
+
+```python
+from usau_scraper import getTeamInfo, getTeamSchedule, getTeamRoster
+
+# Get a team's basic information
+print(getTeamInfo(
+    schoolName = 'Columbia', 
+    teamName = 'Baewatch', 
+    genderDivision=2, 
+    state='NY', 
+    competitionLevel='College', 
+    competitionDivision=1, 
+    teamDesignation=1))
+
+# Get a team's schedule for the current season
+print(getTeamSchedule(schoolName='Columbia', teamName='Curbside'))
+
+# Get a team's roster for the current season
+print(getTeamRoster(schoolName='Columbia', teamName='Curbside'))
+```
+
+Additional usage examples are [in this notebook](https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=20Fjgtxr35ES).
 
 ## Features (MVP)
 
