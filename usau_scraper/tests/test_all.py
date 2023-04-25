@@ -33,6 +33,7 @@ def test_query_team_uri_passed_in():
     assert len(teams) == 1
     assert teams["singleTeam"] == "TEST_URI"
 
+
 # ------------------ setArgs Tests ------------------
 def test_set_args():
     args = {
@@ -112,6 +113,7 @@ def test_get_team_info_not_found():
     teams = getTeamInfo(schoolName="wgiubwiugbiwugbwiubwgub")
 
     assert teams["res"] == "NOTFOUND"
+
 
 # ------------------ getTeamSchedule Tests ------------------
 def test_get_team_schedule():

@@ -20,20 +20,20 @@ def getTeamInfo(**kwargs):
 
         ``teamName`` (string): The name of the team (ex. Pleiades).
 
-        ``genderDivision`` (string): The gender division that the team competes in. 
+        ``genderDivision`` (string): The gender division that the team competes in.
         Must be one of: Women, Men, Mixed, Boys, Girls.
 
         ``state`` (string): Postal abbreviation of the state the team is in.
 
-        ``competitionLevel`` (string): The competition level that the team plays at. 
+        ``competitionLevel`` (string): The competition level that the team plays at.
         Must be one of: Club, College, High School, or Middle School.
 
-        ``competitionDivision`` (string): The competition division that the team plays in. 
+        ``competitionDivision`` (string): The competition division that the team plays in.
         Must be one of: Classic, Developmental, Division 1, or Division 3.
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and 
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
         ignore other parameters.
 
     Returns:
@@ -102,20 +102,20 @@ def getTeamSchedule(**kwargs):
 
         ``teamName`` (string): The name of the team (ex. Pleiades).
 
-        ``genderDivision`` (string): The gender division that the team competes in. 
+        ``genderDivision`` (string): The gender division that the team competes in.
         Must be one of: Women, Men, Mixed, Boys, Girls.
 
         ``state`` (string): Postal abbreviation of the state the team is in.
 
-        ``competitionLevel`` (string): The competition level that the team plays at. 
+        ``competitionLevel`` (string): The competition level that the team plays at.
         Must be one of: Club, College, High School, or Middle School.
 
-        ``competitionDivision`` (string): The competition division that the team plays in. 
+        ``competitionDivision`` (string): The competition division that the team plays in.
         Must be one of: Classic, Developmental, Division 1, or Division 3.
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and 
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
         ignore other parameters.
 
     Returns:
@@ -210,20 +210,20 @@ def getTeamRoster(**kwargs):
 
         ``teamName`` (string): The name of the team (ex. Pleiades).
 
-        ``genderDivision`` (string): The gender division that the team competes in. 
+        ``genderDivision`` (string): The gender division that the team competes in.
         Must be one of: Women, Men, Mixed, Boys, Girls.
 
         ``state`` (string): Postal abbreviation of the state the team is in.
 
-        ``competitionLevel`` (string): The competition level that the team plays at. 
+        ``competitionLevel`` (string): The competition level that the team plays at.
         Must be one of: Club, College, High School, or Middle School.
 
-        ``competitionDivision`` (string): The competition division that the team plays in. 
+        ``competitionDivision`` (string): The competition division that the team plays in.
         Must be one of: Classic, Developmental, Division 1, or Division 3.
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and 
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
         ignore other parameters.
 
     Returns:
@@ -309,7 +309,7 @@ def fillInBasicInfo(soup):
 def queryTeam(args):
     if "teamURI" in args:
         return {"singleTeam": args["teamURI"]}
-    
+
     with requests.Session() as req:
         endpoint = "/teams/events/rankings/"
         teamDict = {}
@@ -333,23 +333,9 @@ def queryTeam(args):
 
 def setArgs(args):
     designation_mappings = {
-        "Gender": {
-            "Boys": 20,
-            "Girls": 19,
-            "Men": 17,
-            "Mixed": 1,
-            "Women": 2
-        },
-        "Division": {
-            "Classic": 10,
-            "Developmental": 4,
-            "Division 1": 1,
-            "Division 3": 3
-        },
-        "Designation": {
-            "B": 1,
-            "C": 2
-        }
+        "Gender": {"Boys": 20, "Girls": 19, "Men": 17, "Mixed": 1, "Women": 2},
+        "Division": {"Classic": 10, "Developmental": 4, "Division 1": 1, "Division 3": 3},
+        "Designation": {"B": 1, "C": 2},
     }
 
     checkArgs(designation_mappings, args)
@@ -359,23 +345,27 @@ def setArgs(args):
         "CT_Main_0$F_Status": "Published",
         "CT_Main_0$F_SchoolName": args["schoolName"] if "schoolName" in args else "",
         "CT_Main_0$F_TeamName": args["teamName"] if "teamName" in args else "",
-        "CT_Main_0$F_GenderDivisionId": designation_mappings["Gender"][args["genderDivision"]] 
-            if "genderDivision" in args else "",
+        "CT_Main_0$F_GenderDivisionId": designation_mappings["Gender"][args["genderDivision"]]
+        if "genderDivision" in args
+        else "",
         "CT_Main_0$F_StateId": args["state"] if "state" in args else "",
         "CT_Main_0$F_CompetitionLevelId": args["competitionLevel"] if "competitionLevel" in args else "",
-        "CT_Main_0$F_CompetitionDivisionId": designation_mappings["Division"][args["competitionDivision"]] 
-            if "competitionDivision" in args else "",
+        "CT_Main_0$F_CompetitionDivisionId": designation_mappings["Division"][args["competitionDivision"]]
+        if "competitionDivision" in args
+        else "",
         "CT_Main_0$F_Designation": designation_mappings["Designation"][args["teamDesignation"]]
-            if "teamDesignation" in args else "",
+        if "teamDesignation" in args
+        else "",
     }
 
     return data
+
 
 def checkArgs(designation_mappings, args):
     if "genderDivision" in args:
         if args["genderDivision"] not in designation_mappings["Gender"]:
             raise ValueError("Gender Division must be one of: Boys, Girls, Men, Mixed, Women")
-    
+
     if "competitionDivision" in args:
         if args["competitionDivision"] not in designation_mappings["Division"]:
             raise ValueError("Competition Division must be one of: Classic, Developmental, Division 1, Division 3")
@@ -383,7 +373,7 @@ def checkArgs(designation_mappings, args):
     if "teamDesignation" in args:
         if args["teamDesignation"] not in designation_mappings["Designation"]:
             raise ValueError("Competition Designation must be B or C")
-    
+
     if "competitionLevel" in args:
         if args["competitionLevel"] not in ["Club", "College", "High School", "Middle School"]:
             raise ValueError("Competition Level must be one of: Club, College, High School, Middle School")
