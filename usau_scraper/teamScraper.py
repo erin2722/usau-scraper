@@ -33,8 +33,8 @@ def getTeamInfo(**kwargs):
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
-        ignore other parameters.
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with
+        this URI andignore other parameters.
 
     Returns:
         results:
@@ -115,8 +115,8 @@ def getTeamSchedule(**kwargs):
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
-        ignore other parameters.
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with
+        this URI and ignore other parameters.
 
     Returns:
         ::
@@ -223,8 +223,8 @@ def getTeamRoster(**kwargs):
 
         ``teamDesignation`` (string): If the team is a B or a C team. Must be B or C.
 
-        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with this URI and
-        ignore other parameters.
+        ``teamURI`` (string): If querying based on team URI, will simply return the results of the team with
+        this URI and ignore other parameters.
 
     Returns:
         results:
