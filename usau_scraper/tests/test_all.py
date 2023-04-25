@@ -8,7 +8,7 @@ from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule,
 
 # ------------------ queryTeam Tests ------------------
 def test_query_team_multiple_teams():
-    team_results = queryTeam({"schoolName": "Columbia", "competitionLevel": "College", "genderDivision": 2})
+    team_results = queryTeam({"schoolName": "Columbia", "competitionLevel": "College", "genderDivision": "Women"})
 
     expected_res_keys = ["British Columbia (Thunderbirds)", "Columbia (Curbside)", "Columbia-B (Baewatch)"]
 
@@ -27,18 +27,22 @@ def test_query_team_more_than_twenty():
     assert len(team_results) == 20
 
 
+def test_query_team_uri_passed_in():
+    teams = queryTeam({"teamURI": "TEST_URI"})
+
+    assert len(teams) == 1
+    assert teams["singleTeam"] == "TEST_URI"
+
 # ------------------ setArgs Tests ------------------
 def test_set_args():
-    # TODO: change genderDivision, competitionDivision, teamDesignation to map
-    # to the non-id values, and test that
     args = {
         "schoolName": "Columbia",
         "teamName": "Baewatch",
-        "genderDivision": 2,
+        "genderDivision": "Women",
         "state": "NY",
         "competitionLevel": "College",
-        "competitionDivision": 1,
-        "teamDesignation": 1,
+        "competitionDivision": "Division 1",
+        "teamDesignation": "B",
     }
 
     expectedData = {
@@ -108,7 +112,6 @@ def test_get_team_info_not_found():
     teams = getTeamInfo(schoolName="wgiubwiugbiwugbwiubwgub")
 
     assert teams["res"] == "NOTFOUND"
-
 
 # ------------------ getTeamSchedule Tests ------------------
 def test_get_team_schedule():

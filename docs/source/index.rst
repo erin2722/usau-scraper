@@ -3,13 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to usau-scraper's documentation!
+usau-scraper documentation
 ===========================================
-
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   modules
 
 Installation
 ===================================
@@ -17,13 +18,13 @@ Installation
 
 How to Use
 ===================================
-After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.
+After installing the library, there are currently 3 functions available for use:
+``getTeamInfo``, ``getTeamSchedule``, and ``getTeamRoster``.
 
-Simply :code:`import * from usau_scraper`, and then call any of the following functions:
+Simply :code:`import * from usau_scraper`, and get started!
 
-.. automodule:: usau_scraper.teamScraper
-   :members:
-   :show-inheritance:
+More extensive module documentation is here:
+:ref:`modules`
 
 Example Usage
 ===================================
