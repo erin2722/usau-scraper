@@ -164,7 +164,7 @@ Additional usage examples are [in this notebook](https://colab.research.google.c
 ## Additional features
 
 - [ ] A function that, given a college division, returns the current standings of that division.
-- [ ] An additional plugin to ultiworld to show current top 25 teams.
+- [ ] An additional plugin to [frisbee-rankings.com](http://www.frisbee-rankings.com/) to show current top 25 teams.
 - [ ] An additional plugin to ultiworld to show recent articles given a team name or college division.
 - [ ] More features tbd!
 
