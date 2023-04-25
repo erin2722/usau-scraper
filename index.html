@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to usau-scraper’s documentation! &mdash; usau-scraper 0.1.1 documentation</title>
+  <title>usau-scraper documentation &mdash; usau-scraper 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,8 @@
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="usau-scraper package details" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,20 +41,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to usau-scraper’s documentation!</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#how-to-use">How to Use</a><ul>
-<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamInfo"><code class="docutils literal notranslate"><span class="pre">getTeamInfo()</span></code></a></li>
-<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamRoster"><code class="docutils literal notranslate"><span class="pre">getTeamRoster()</span></code></a></li>
-<li><a class="reference internal" href="#usau_scraper.teamScraper.getTeamSchedule"><code class="docutils literal notranslate"><span class="pre">getTeamSchedule()</span></code></a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">usau-scraper package details</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#example-usage">Example Usage</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -68,7 +60,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to usau-scraper’s documentation!</li>
+      <li class="breadcrumb-item active">usau-scraper documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,9 +70,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="welcome-to-usau-scraper-s-documentation">
-<h1>Welcome to usau-scraper’s documentation!<a class="headerlink" href="#welcome-to-usau-scraper-s-documentation" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="usau-scraper-documentation">
+<h1>usau-scraper documentation<a class="headerlink" href="#usau-scraper-documentation" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">usau-scraper package details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-usau_scraper.teamScraper">Team Scraper</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="installation">
@@ -89,142 +88,11 @@
 </div>
 <div class="section" id="how-to-use">
 <h1>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">¶</a></h1>
-<p>After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.</p>
-<p>Simply <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">usau_scraper</span></code>, and then call any of the following functions:</p>
-<span class="target" id="module-usau_scraper.teamScraper"></span><span class="target" id="module-teamScraper"></span><dl class="py function">
-<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamInfo">
-<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamInfo() returns all information about the first 20 teams matching the query</p>
-<dl>
-<dt>Args:</dt><dd><p>schoolName
-teamName
-genderDivision
-state
-competitionLevel
-competitionDivision
-teamDesignation</p>
-</dd>
-<dt>Returns:</dt><dd><dl>
-<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
-    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="n">schoolName</span><span class="p">,</span>
-            <span class="n">teamName</span><span class="p">,</span>
-            <span class="n">competitionLevel</span><span class="p">,</span>
-            <span class="n">genderDivision</span><span class="p">,</span>
-            <span class="n">location</span><span class="p">,</span>
-            <span class="n">coaches</span><span class="p">,</span>
-            <span class="n">website</span><span class="p">,</span>
-            <span class="n">facebook</span><span class="p">,</span>
-            <span class="n">twitter</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="o">...</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamRoster">
-<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamRoster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamRoster" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamRoster() returns the roster of the first 20 teams matching the query</p>
-<dl>
-<dt>Args:</dt><dd><p>schoolName,
-teamName,
-genderDivision,
-state,
-competitionLevel,
-competitionDivision,
-teamDesignation</p>
-</dd>
-<dt>Returns:</dt><dd><dl>
-<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
-    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="n">schoolName</span><span class="p">,</span>
-            <span class="n">teamName</span><span class="p">,</span>
-            <span class="n">competitionLevel</span><span class="p">,</span>
-            <span class="n">genderDivision</span><span class="p">,</span>
-            <span class="n">roster</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="n">no</span><span class="p">,</span>
-                    <span class="n">name</span><span class="p">,</span>
-                    <span class="n">pronouns</span><span class="p">,</span>
-                    <span class="n">position</span><span class="p">,</span>
-                    <span class="n">year</span><span class="p">,</span>
-                    <span class="n">height</span><span class="p">,</span>
-                <span class="p">},</span>
-                <span class="o">...</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="o">...</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="usau_scraper.teamScraper.getTeamSchedule">
-<span class="sig-prename descclassname"><span class="pre">usau_scraper.teamScraper.</span></span><span class="sig-name descname"><span class="pre">getTeamSchedule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.teamScraper.getTeamSchedule" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTeamSchedule() returns the season schedule and record of the first 20 teams matching the query</p>
-<dl>
-<dt>Args:</dt><dd><p>schoolName,
-teamName,
-genderDivision,
-state,
-competitionLevel,
-competitionDivision,
-teamDesignation</p>
-</dd>
-<dt>Returns:</dt><dd><dl>
-<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
-    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="n">schoolName</span><span class="p">,</span>
-            <span class="n">teamName</span><span class="p">,</span>
-            <span class="n">competitionLevel</span><span class="p">,</span>
-            <span class="n">genderDivision</span><span class="p">,</span>
-            <span class="n">wins</span><span class="p">,</span>
-            <span class="n">losses</span><span class="p">,</span>
-            <span class="n">tournaments</span><span class="p">:</span> <span class="p">{</span>
-                <span class="n">name</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="n">games</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="n">date</span><span class="p">,</span>
-                            <span class="n">score</span><span class="p">,</span>
-                            <span class="n">opponentCollege</span><span class="p">,</span>
-                            <span class="n">opponentTeamPage</span>
-                        <span class="p">},</span>
-                        <span class="o">...</span>
-                    <span class="p">]</span>
-                <span class="p">},</span>
-                <span class="o">...</span>
-            <span class="p">},</span>
-        <span class="p">},</span>
-        <span class="o">...</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
+<p>After installing the library, there are currently 3 functions available for use:
+<code class="docutils literal notranslate"><span class="pre">getTeamInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">getTeamSchedule</span></code>, and <code class="docutils literal notranslate"><span class="pre">getTeamRoster</span></code>.</p>
+<p>Simply <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">usau_scraper</span></code>, and get started!</p>
+<p>More extensive module documentation is here:
+<a class="reference internal" href="modules.html#modules"><span class="std std-ref">usau-scraper package details</span></a></p>
 </div>
 <div class="section" id="example-usage">
 <h1>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h1>
@@ -262,7 +130,9 @@ teamDesignation</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-right" title="usau-scraper package details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
