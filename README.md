@@ -1,5 +1,9 @@
 # USAU Scraper
 
+<p align="center">
+<img width="500" alt="USAU logo surrounded by data icons" src="https://user-images.githubusercontent.com/16248113/235183543-063d7200-5dcb-491d-bdbe-2eeaea6b5eee.png">
+</p>
+
 The USAU scraper is a data collector that allows developers to easily aggregate and use team results, rosters, and schedule data from the [USAU website](https://play.usaultimate.org/events/tournament/?ViewAll=false&IsLeagueType=false&IsClinic=false&FilterByCategory=AE).
 
 ![Apache Liscence](https://img.shields.io/github/license/erin2722/usau-scraper?color=f72d2d)
@@ -139,11 +143,11 @@ from usau_scraper import getTeamInfo, getTeamSchedule, getTeamRoster
 print(getTeamInfo(
     schoolName = 'Columbia', 
     teamName = 'Baewatch', 
-    genderDivision=2, 
+    genderDivision='Women', 
     state='NY', 
     competitionLevel='College', 
-    competitionDivision=1, 
-    teamDesignation=1))
+    competitionDivision='Division 1', 
+    teamDesignation='B'))
 
 # Get a team's schedule for the current season
 print(getTeamSchedule(schoolName='Columbia', teamName='Curbside'))
@@ -164,7 +168,6 @@ Additional usage examples are [in this notebook](https://colab.research.google.c
 ## Additional features
 
 - [ ] A function that, given a college division, returns the current standings of that division.
-- [ ] An additional plugin to [frisbee-rankings.com](http://www.frisbee-rankings.com/) to show current top 25 teams.
 - [ ] An additional plugin to ultiworld to show recent articles given a team name or college division.
 - [ ] More features tbd!
 
