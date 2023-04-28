@@ -1,5 +1,3 @@
-# USAU Scraper
-
 <p align="center">
 <img width="500" alt="USAU logo surrounded by data icons" src="https://user-images.githubusercontent.com/16248113/235183543-063d7200-5dcb-491d-bdbe-2eeaea6b5eee.png">
 </p>
