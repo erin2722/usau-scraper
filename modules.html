@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>usau-scraper package details &mdash; usau-scraper 0.1.1 documentation</title>
+  <title>package details &mdash; usau-scraper 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="developer documentation" href="developer.html" />
     <link rel="prev" title="usau-scraper documentation" href="index.html" /> 
 </head>
 
@@ -43,7 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">usau-scraper package details</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">package details</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-usau_scraper.teamScraper">Team Scraper</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#usau_scraper.teamScraper.getTeamInfo"><code class="docutils literal notranslate"><span class="pre">getTeamInfo()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usau_scraper.teamScraper.getTeamRoster"><code class="docutils literal notranslate"><span class="pre">getTeamRoster()</span></code></a></li>
@@ -52,6 +53,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">developer documentation</a></li>
 </ul>
 
         </div>
@@ -68,7 +70,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">usau-scraper package details</li>
+      <li class="breadcrumb-item active">package details</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,8 +80,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="usau-scraper-package-details">
-<span id="modules"></span><h1>usau-scraper package details<a class="headerlink" href="#usau-scraper-package-details" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="package-details">
+<span id="modules"></span><h1>package details<a class="headerlink" href="#package-details" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="module-usau_scraper.teamScraper">
 <span id="team-scraper"></span><h2>Team Scraper<a class="headerlink" href="#module-usau_scraper.teamScraper" title="Permalink to this heading">¶</a></h2>
 <span class="target" id="module-teamScraper"></span><dl class="py function">
@@ -89,16 +91,16 @@
 <dl>
 <dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">schoolName</span></code> (string): The school that the team is affiliated with (ex. Columbia).</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamName</span></code> (string): The name of the team (ex. Pleiades).</p>
-<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in. 
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in.
 Must be one of: Women, Men, Mixed, Boys, Girls.</p>
 <p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the team is in.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at.
 Must be one of: Club, College, High School, or Middle School.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in.
 Must be one of: Classic, Developmental, Division 1, or Division 3.</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamDesignation</span></code> (string): If the team is a B or a C team. Must be B or C.</p>
-<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with this URI and 
-ignore other parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with
+this URI andignore other parameters.</p>
 </dd>
 <dt>Returns:</dt><dd><dl>
 <dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -133,16 +135,16 @@ ignore other parameters.</p>
 <dl>
 <dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">schoolName</span></code> (string): The school that the team is affiliated with (ex. Columbia).</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamName</span></code> (string): The name of the team (ex. Pleiades).</p>
-<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in. 
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in.
 Must be one of: Women, Men, Mixed, Boys, Girls.</p>
 <p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the team is in.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at.
 Must be one of: Club, College, High School, or Middle School.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in.
 Must be one of: Classic, Developmental, Division 1, or Division 3.</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamDesignation</span></code> (string): If the team is a B or a C team. Must be B or C.</p>
-<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with this URI and 
-ignore other parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with
+this URI and ignore other parameters.</p>
 </dd>
 <dt>Returns:</dt><dd><dl>
 <dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -183,16 +185,16 @@ ignore other parameters.</p>
 <dl>
 <dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">schoolName</span></code> (string): The school that the team is affiliated with (ex. Columbia).</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamName</span></code> (string): The name of the team (ex. Pleiades).</p>
-<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in. 
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): The gender division that the team competes in.
 Must be one of: Women, Men, Mixed, Boys, Girls.</p>
 <p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the team is in.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string): The competition level that the team plays at.
 Must be one of: Club, College, High School, or Middle School.</p>
-<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in. 
+<p><code class="docutils literal notranslate"><span class="pre">competitionDivision</span></code> (string): The competition division that the team plays in.
 Must be one of: Classic, Developmental, Division 1, or Division 3.</p>
 <p><code class="docutils literal notranslate"><span class="pre">teamDesignation</span></code> (string): If the team is a B or a C team. Must be B or C.</p>
-<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with this URI and 
-ignore other parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">teamURI</span></code> (string): If querying based on team URI, will simply return the results of the team with
+this URI and ignore other parameters.</p>
 </dd>
 <dt>Returns:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
@@ -236,6 +238,7 @@ ignore other parameters.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="usau-scraper documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="developer.html" class="btn btn-neutral float-right" title="developer documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

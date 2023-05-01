@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="usau-scraper package details" href="modules.html" /> 
+    <link rel="next" title="package details" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +43,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">usau-scraper package details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">package details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">developer documentation</a></li>
 </ul>
 
         </div>
@@ -72,11 +73,17 @@
              
   <div class="section" id="usau-scraper-documentation">
 <h1>usau-scraper documentation<a class="headerlink" href="#usau-scraper-documentation" title="Permalink to this heading">¶</a></h1>
+<a class="reference internal image-reference" href="_images/project-logo.png"><img alt="USAU logo surrounded by gears" class="align-center" src="_images/project-logo.png" style="width: 400px;" /></a>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">usau-scraper package details</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">package details</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="modules.html#module-usau_scraper.teamScraper">Team Scraper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">developer documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#getting-started-developing">Getting Started Developing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#documentation-contributions">Documentation Contributions</a></li>
 </ul>
 </li>
 </ul>
@@ -92,7 +99,7 @@
 <code class="docutils literal notranslate"><span class="pre">getTeamInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">getTeamSchedule</span></code>, and <code class="docutils literal notranslate"><span class="pre">getTeamRoster</span></code>.</p>
 <p>Simply <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">usau_scraper</span></code>, and get started!</p>
 <p>More extensive module documentation is here:
-<a class="reference internal" href="modules.html#modules"><span class="std std-ref">usau-scraper package details</span></a></p>
+<a class="reference internal" href="modules.html#modules"><span class="std std-ref">package details</span></a></p>
 </div>
 <div class="section" id="example-usage">
 <h1>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h1>
@@ -103,11 +110,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">getTeamInfo</span><span class="p">(</span>
    <span class="n">schoolName</span> <span class="o">=</span> <span class="s1">&#39;Columbia&#39;</span><span class="p">,</span>
    <span class="n">teamName</span> <span class="o">=</span> <span class="s1">&#39;Baewatch&#39;</span><span class="p">,</span>
-   <span class="n">genderDivision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">genderDivision</span><span class="o">=</span><span class="s1">&#39;Women&#39;</span><span class="p">,</span>
    <span class="n">state</span><span class="o">=</span><span class="s1">&#39;NY&#39;</span><span class="p">,</span>
    <span class="n">competitionLevel</span><span class="o">=</span><span class="s1">&#39;College&#39;</span><span class="p">,</span>
-   <span class="n">competitionDivision</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-   <span class="n">teamDesignation</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+   <span class="n">competitionDivision</span><span class="o">=</span><span class="s1">&#39;Division 1&#39;</span><span class="p">,</span>
+   <span class="n">teamDesignation</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">))</span>
 
 <span class="c1"># Get a team&#39;s schedule for the current season</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">getTeamSchedule</span><span class="p">(</span><span class="n">schoolName</span><span class="o">=</span><span class="s1">&#39;Columbia&#39;</span><span class="p">,</span> <span class="n">teamName</span><span class="o">=</span><span class="s1">&#39;Curbside&#39;</span><span class="p">))</span>
@@ -123,7 +130,6 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
 
@@ -131,7 +137,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-right" title="usau-scraper package details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="package details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

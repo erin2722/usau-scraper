@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>developer documentation &mdash; usau-scraper 0.1.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="package details" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            usau-scraper
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">package details</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">developer documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-developing">Getting Started Developing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-contributions">Documentation Contributions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">usau-scraper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">developer documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/developer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="developer-documentation">
+<span id="developer"></span><h1>developer documentation<a class="headerlink" href="#developer-documentation" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="getting-started-developing">
+<h2>Getting Started Developing<a class="headerlink" href="#getting-started-developing" title="Permalink to this heading">¶</a></h2>
+<p>Prerequisites: Make sure you have Python3.7+ installed.</p>
+<ol class="arabic">
+<li><p>Fork the repository from the main page.</p></li>
+<li><p>Clone your fork to your computer and add the remote</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="o">&lt;</span><span class="n">your</span> <span class="n">GitHub</span> <span class="n">handle</span><span class="o">&gt;/</span><span class="n">usau</span><span class="o">-</span><span class="n">scraper</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">usau</span><span class="o">-</span><span class="n">scraper</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">erin2722</span><span class="o">/</span><span class="n">usau</span><span class="o">-</span><span class="n">scraper</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a branch</p></li>
+<li><p>git checkout -b my-awesome-new-feature</p></li>
+<li><p>Run <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">develop</span></code> to get ready to develop (strongly recommend in a virtualenv)</p></li>
+<li><p>Make your changes. Make sure to add in tests and documentation changes for all new features.</p></li>
+<li><p>Run the test suite. From the top level usau-scraper directory run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">test</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">format</span></code> and <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code> to autoformat the library.</p></li>
+<li><p>Add and commit changes with descriptive message</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">file1</span><span class="o">.</span><span class="n">py</span> <span class="n">tests</span><span class="o">/</span><span class="n">test_file1</span><span class="o">.</span><span class="n">py</span> <span class="n">docs</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;My new fancy functionality&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Sync with upstream to pull any recent changes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">upstream</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">upstream</span><span class="o">/</span><span class="n">master</span>
+</pre></div>
+</div>
+</li>
+<li><p>Push your changes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">feature</span>
+</pre></div>
+</div>
+</li>
+<li><p>Click the link that appears in your terminal to make a pull request, or go to your fork of the repository and click the link.
+Add a summary of your changes and submit!</p></li>
+</ol>
+</div>
+<div class="section" id="documentation-contributions">
+<h2>Documentation Contributions<a class="headerlink" href="#documentation-contributions" title="Permalink to this heading">¶</a></h2>
+<p>The documentation is built using sphinx and read the docs. When writing new public-facing functions, always add in google-style
+docstrings so that the functions can be added to autodocumentation.</p>
+<p>If you want to contribute a new example, edit/add in another google collab notebook to the <code class="code docutils literal notranslate"><span class="pre">examples/</span></code> folder.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="package details" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Erin McNulty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -6,11 +6,17 @@
 usau-scraper documentation
 ===========================================
 
+.. image:: ../../assets/project-logo.png
+  :width: 400
+  :align: center
+  :alt: USAU logo surrounded by gears
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    modules
+   developer
 
 Installation
 ===================================
@@ -38,11 +44,11 @@ After :code:`pip install --upgrade usau-scraper` in your python env:
    print(getTeamInfo(
       schoolName = 'Columbia', 
       teamName = 'Baewatch', 
-      genderDivision=2, 
+      genderDivision='Women', 
       state='NY', 
       competitionLevel='College', 
-      competitionDivision=1, 
-      teamDesignation=1))
+      competitionDivision='Division 1', 
+      teamDesignation='B'))
 
    # Get a team's schedule for the current season
    print(getTeamSchedule(schoolName='Columbia', teamName='Curbside'))
@@ -57,4 +63,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
