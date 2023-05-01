@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule, setArgs, fillInBasicInfo
+from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule, setArgs, fillInBasicInfo, getCollegeRankings, getClubRankings
 
 # ------------------------------- UNIT TESTS -------------------------------
 
@@ -173,3 +173,44 @@ def test_get_team_roster():
 
     assert teams["res"] == "OK"
     assert expectedPlayer in teams["teams"][0]["roster"]
+
+# ------------------ getCollegeRankings Tests ------------------
+def test_get_college_rankings():
+    teams = getCollegeRankings(genderDivision="Women")
+
+    expectedTeam = {
+        "Rank": "1",
+        "Team": "North Carolina",
+        "Power Rating": "2824",
+        "Competition Level": "College",
+        "Gender Division": "Women",
+        "Competition Division": "Division I",
+        "College Region": "Atlantic Coast",
+        "College Conference": "Carolina DI",
+        "Wins": "16",
+        "Losses": "0",
+    }
+
+    assert teams["res"] == "OK"
+    assert expectedTeam == teams["teams"][0]
+
+# ------------------ getClubRankings Tests ------------------
+def test_get_club_rankings():
+    teams = getClubRankings(genderDivision="Men")
+
+    expectedTeam = {
+        "Rank": "1",
+        "Team": "Truck Stop",
+        "Power Rating": "2134",
+        "Gender Division": "Men",
+        "Competition Division": "Pro",
+        "City": "Washington",
+        "State": "DC",
+        "Club Region": "Mid-Atlantic",
+        "Club Section": "Capital",
+        "Wins": "30",
+        "Losses": "4",
+    }
+
+    assert teams["res"] == "OK"
+    assert expectedTeam == teams["teams"][0]
