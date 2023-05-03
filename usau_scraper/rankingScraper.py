@@ -11,16 +11,17 @@ import pandas as pd
 
 BASE_URL = "https://play.usaultimate.org"
 
+
 def getCollegeRankings(**kwargs):
-    '''getCollegeRankings() returns top 20 teams for the inputted gender division at the college competition level.
+    '''getCollegeRankings() returns top 20 teams for inputted gender at the college competition level.
 
     Args:
         ``genderDivision`` (string): Women, Men, or Mixed (for Club only)
-    
+
     Returns:
         results:
             ::
-            
+
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -46,17 +47,18 @@ def getCollegeRankings(**kwargs):
         return {"res": "NOTFOUND"}
     else:
         return {"res": "OK", "teams": teams}
-    
+
+
 def getClubRankings(**kwargs):
-    '''getRankings() returns top 20 teams for the inputted gender division at the club competition level.
+    '''getClubRankings() returns top 20 teams for inputted gender at the club competition level.
 
     Args:
         ``genderDivision`` (string): Women, Men, or Mixed (for Club only)
-    
+
     Returns:
         results:
             ::
-                
+
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -84,6 +86,7 @@ def getClubRankings(**kwargs):
     else:
         return {"res": "OK", "teams": teams}
 
+
 def queryRankings(args):
     with requests.Session() as req:
         endpoint = "/teams/events/team_rankings/?RankSet=" + args["competitionLevel"] + "-" + args["genderDivision"]
@@ -98,4 +101,3 @@ def queryRankings(args):
         teamsDict = dfs.to_dict('records')
 
         return teamsDict
-

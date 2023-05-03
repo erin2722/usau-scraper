@@ -1,7 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule, setArgs, fillInBasicInfo, getCollegeRankings, getClubRankings
+from usau_scraper import (
+    queryTeam,
+    getTeamRoster,
+    getTeamInfo,
+    getTeamSchedule,
+    setArgs,
+    fillInBasicInfo,
+    getCollegeRankings,
+    getClubRankings,
+)
 
 # ------------------------------- UNIT TESTS -------------------------------
 
@@ -174,6 +183,7 @@ def test_get_team_roster():
     assert teams["res"] == "OK"
     assert expectedPlayer in teams["teams"][0]["roster"]
 
+
 # ------------------ getCollegeRankings Tests ------------------
 def test_get_college_rankings():
     teams = getCollegeRankings(genderDivision="Women")
@@ -193,6 +203,7 @@ def test_get_college_rankings():
 
     assert teams["res"] == "OK"
     assert expectedTeam == teams["teams"][0]
+
 
 # ------------------ getClubRankings Tests ------------------
 def test_get_club_rankings():
