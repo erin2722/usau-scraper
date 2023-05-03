@@ -2,7 +2,7 @@
 .. module:: rankingScraper
    :synopsis: A module for scraping team rankings.
 
-.. moduleauthor:: Erin McNulty
+.. moduleauthor:: Cherie Liu
 """
 
 import requests
