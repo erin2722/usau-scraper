@@ -7,7 +7,6 @@
 
 import requests
 from bs4 import BeautifulSoup
-import re
 import pandas as pd
 
 BASE_URL = "https://play.usaultimate.org"
@@ -21,6 +20,7 @@ def getCollegeRankings(**kwargs):
     Returns:
         results:
             ::
+            
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -56,6 +56,7 @@ def getClubRankings(**kwargs):
     Returns:
         results:
             ::
+                
                 {
                     res: OK, NOTFOUND
                     teams: [
@@ -86,7 +87,6 @@ def getClubRankings(**kwargs):
 def queryRankings(args):
     with requests.Session() as req:
         endpoint = "/teams/events/team_rankings/?RankSet=" + args["competitionLevel"] + "-" + args["genderDivision"]
-        teamDict = {}
         r = req.get(BASE_URL + endpoint)
         soup = BeautifulSoup(r.content, 'html.parser')
 
