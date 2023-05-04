@@ -30,12 +30,12 @@ from usau_scraper import *
 
 # Get a team's basic information
 print(getTeamInfo(
-    schoolName = 'Columbia', 
-    teamName = 'Baewatch', 
-    genderDivision='Women', 
-    state='NY', 
-    competitionLevel='College', 
-    competitionDivision='Division 1', 
+    schoolName = 'Columbia',
+    teamName = 'Baewatch',
+    genderDivision='Women',
+    state='NY',
+    competitionLevel='College',
+    competitionDivision='Division 1',
     teamDesignation='B'))
 
 # Get a team's schedule for the current season
@@ -47,11 +47,17 @@ print(getTeamRoster(schoolName='Columbia', teamName='Curbside'))
 # Get the pool play results for a tournament
 print(getTournamentPoolPlayResults("College", "Women", eventName="No Sleep Till Brooklyn", season=2023))
 
-# Get the bracekt results for a tournament
+# Get the bracket results for a tournament
 print(getTournamentBracketResults("College", "Women", eventName="Centex", season=2022))
 
 # Get the winner for a tournament
 print(getTournamentWinner("College", "Women", eventName="Stanford Invite", season=2023))
+
+# Get the top 20 women's college teams
+print(getCollegeRankings(genderDivision="Women"))
+
+# Get the top 20 women's club teams
+print(getClubRankings(genderDivision="Women"))
 ```
 
 Additional usage examples are [in this notebook](https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=20Fjgtxr35ES).
@@ -65,7 +71,7 @@ Additional usage examples are [in this notebook](https://colab.research.google.c
 
 ## Additional features
 
-- [ ] A function that, given a college division, returns the current standings of that division.
+- [x] A function that, given a college division, returns the current standings of that division.
 - [ ] An additional plugin to ultiworld to show recent articles given a team name or college division.
 - [ ] More features tbd!
 
