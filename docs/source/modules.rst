@@ -1,6 +1,6 @@
 .. _modules:
 
-usau-scraper package details
+package details
 ===========================================
 
 Team Scraper
@@ -10,6 +10,13 @@ Team Scraper
    :members:
    :show-inheritance:
 
+Tournament Scraper
+------------------
+
+.. automodule:: usau_scraper.tournamentScraper
+   :members:
+   :show-inheritance:
+   
 Rankings Scraper
 -----------------
 .. automodule:: usau_scraper.rankingScraper
