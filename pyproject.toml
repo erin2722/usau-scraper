@@ -11,7 +11,7 @@ name = "usau-scraper"
 authors = [{name = "Erin McNulty", email = "eem2188@columbia.edu"}]
 description="The USAU scraper is a data collector that allows developers to easily aggregate and use team results, rosters, and schedule data from the USAU website."
 readme = "README.md"
-version = "0.3.0"
+version = "0.4.0"
 requires-python = ">=3.7"
 
 dependencies = ["bs4", "requests", "pandas", "lxml"]
