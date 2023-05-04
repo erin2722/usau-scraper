@@ -1,7 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
-from usau_scraper import queryTeam, getTeamRoster, getTeamInfo, getTeamSchedule, setArgs, fillInBasicInfo
+from usau_scraper import (
+    queryTeam,
+    getTeamRoster,
+    getTeamInfo,
+    getTeamSchedule,
+    setArgs,
+    fillInBasicInfo,
+    getTournamentBracketResults,
+    getTournamentPoolPlayResults,
+    getTournamentWinner,
+)
 
 # ------------------------------- UNIT TESTS -------------------------------
 
@@ -173,3 +183,45 @@ def test_get_team_roster():
 
     assert teams["res"] == "OK"
     assert expectedPlayer in teams["teams"][0]["roster"]
+
+
+# ------------------ getTournamentPoolPlayResults Tests ------------------
+def test_get_tournament_pool_play():
+    results = getTournamentPoolPlayResults("College", "Women", eventName="No Sleep Till Brooklyn", season=2023)
+
+    expectedPoolAResults = {
+        "Team": "Wellesley (1)",
+        "W - L": "3 - 0",
+    }
+
+    assert results["res"] == "OK"
+    del results["No Sleep Till Brooklyn 2023"]["pools"]["Pool A"][0]["Tie"]  # bc NaN != NaN
+    assert results["No Sleep Till Brooklyn 2023"]["pools"]["Pool A"][0] == expectedPoolAResults
+
+
+# ------------------ getTournamentBracketResults Tests ------------------
+def test_get_tournament_bracket():
+    results = getTournamentBracketResults("College", "Women", eventName="No Sleep Till Brooklyn", season=2023)
+
+    expectedFinalsResults = {
+        "date": "3/5/2023",
+        "time": "1:00PM",
+        "field": "8b",
+        "winner": "Wellesley (1)",
+        "loser": "Cornell (11)",
+        "score": "10 - 4",
+        "status": "Final",
+    }
+
+    assert results["res"] == "OK"
+    assert results["No Sleep Till Brooklyn 2023"]["Championship Bracket"]["Finals"][0] == expectedFinalsResults
+
+
+# ------------------ getTournamentWinner Tests ------------------
+def test_get_tournament_winner():
+    results = getTournamentWinner("College", "Women", eventName="No Sleep Till Brooklyn", season=2023)
+
+    expectedResults = {"firstPlace": "Wellesley (1)", "secondPlace": "Cornell (11)"}
+
+    assert results["res"] == "OK"
+    assert results["No Sleep Till Brooklyn 2023"] == expectedResults

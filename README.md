@@ -19,130 +19,21 @@ USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (
 
 ## Installation
 
-`pip install usau-scraper`
-
-## How to Use
-
-After installing the library, there are currently 3 functions available for use: getTeamInfo, getTeamSchedule, and getTeamRoster.
-
-Simply `import * from usau_scraper`, and then call any of the following functions:
-
-### getTeamInfo()
-
-`getTeamInfo()` returns all information about the first 20 teams matching the query
-
-**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
-
-**Output:**
-
-```
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            location,
-            coaches,
-            website,
-            facebook,
-            twitter,
-        },
-        ...
-    ]
-}
-```
-
-### getTeamSchedule
-
-`getTeamSchedule()` returns the season schedule and record of the first 20 teams matching the query
-
-**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
-
-**Output:**
-
-```
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            wins,
-            losses,
-            tournaments: {
-                name: {
-                    games: [
-                        {
-                            date,
-                            score,
-                            opponentCollege,
-                            opponentTeamPage
-                        },
-                        ...
-                    ]
-                },
-                ...
-            },
-        },
-        ...
-    ]
-}
-```
-
-### getTeamRoster
-
-`getTeamRoster()` returns the roster of the first 20 teams matching the query
-
-**Input:** schoolName, teamName, genderDivision, state, competitionLevel, competitionDivision, and teamDesignation as named arguments
-
-**Output:**
-
-```
-{
-    res: OK, NOTFOUND
-    teams: [
-        {
-            schoolName,
-            teamName,
-            competitionLevel,
-            genderDivision,
-            roster: [
-                {
-                    no,
-                    name,
-                    pronouns,
-                    position,
-                    year,
-                    height,
-                },
-                ...
-            ]
-        },
-        ...
-    ]
-}
-```
+`pip install --upgrade usau-scraper`
 
 ## Example Usage
 
-After `pip install --upgrade usau-scraper` in your python env:
-
 ```python
-from usau_scraper import getTeamInfo, getTeamSchedule, getTeamRoster
+from usau_scraper import *
 
 # Get a team's basic information
 print(getTeamInfo(
-    schoolName = 'Columbia', 
-    teamName = 'Baewatch', 
-    genderDivision=2, 
-    state='NY', 
-    competitionLevel='College', 
-    competitionDivision=1, 
+    schoolName = 'Columbia',
+    teamName = 'Baewatch',
+    genderDivision=2,
+    state='NY',
+    competitionLevel='College',
+    competitionDivision=1,
     teamDesignation=1))
 
 # Get a team's schedule for the current season
@@ -150,6 +41,15 @@ print(getTeamSchedule(schoolName='Columbia', teamName='Curbside'))
 
 # Get a team's roster for the current season
 print(getTeamRoster(schoolName='Columbia', teamName='Curbside'))
+
+# Get the pool play results for a tournament
+print(getTournamentPoolPlayResults("College", "Women", eventName="No Sleep Till Brooklyn", season=2023))
+
+# Get the bracekt results for a tournament
+print(getTournamentBracketResults("College", "Women", eventName="Centex", season=2022))
+
+# Get the winner for a tournament
+print(getTournamentWinner("College", "Women", eventName="Stanford Invite", season=2023))
 ```
 
 Additional usage examples are [in this notebook](https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=20Fjgtxr35ES).
@@ -159,7 +59,7 @@ Additional usage examples are [in this notebook](https://colab.research.google.c
 - [x] A function that, given a team name, returns basic information about them.
 - [x] A function that, given a team name, returns their schedule and record.
 - [x] A function that, given a team name, returns its roster.
-- [ ] A function that, given a tournament name, returns the results of the tournament.
+- [x] A function that, given a tournament name, returns the results of the tournament.
 
 ## Additional features
 
