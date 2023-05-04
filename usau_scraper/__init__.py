@@ -5,6 +5,7 @@ from .tournamentScraper import (
     getTournamentPoolPlayResults,
     getTournamentBracketResults,
 )
+from .rankingScraper import getClubRankings, getCollegeRankings, queryRankings
 
 __all__ = [
     'getTeamInfo',
@@ -17,6 +18,9 @@ __all__ = [
     'getTournamentWinner',
     'getTournamentPoolPlayResults',
     'getTournamentBracketResults',
+    'getCollegeRankings',
+    'getClubRankings',
+    'queryRankings',
     '__version__',
 ]
 __version__ = "0.3.0"
