@@ -6,7 +6,7 @@
 usau-scraper documentation
 ===========================================
 
-.. image:: ../../assets/project-logo.png
+.. image:: ../assets/project-logo.png
   :width: 400
   :align: center
   :alt: USAU logo surrounded by gears
