@@ -1,5 +1,7 @@
 # Contribution Guidelines
 
+See more extensive details here: [developer documentation](https://erin2722.github.io/usau-scraper/developer.html)
+
 ## Prerequrisites 
 
 Make sure python (3.7+) and pip are installed.
