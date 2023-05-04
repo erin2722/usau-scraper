@@ -13,6 +13,8 @@ recursive-include docs *.rst
 recursive-include docs *.py
 recursive-include examples *.ipynb
 recursive-include docs Makefile
+recursive-include docs *.png
+
 
 prune .github
 exclude .gitignore
