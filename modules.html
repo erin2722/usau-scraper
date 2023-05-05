@@ -51,6 +51,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#usau_scraper.teamScraper.getTeamSchedule"><code class="docutils literal notranslate"><span class="pre">getTeamSchedule()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-usau_scraper.tournamentScraper">Tournament Scraper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usau_scraper.tournamentScraper.getTournamentBracketResults"><code class="docutils literal notranslate"><span class="pre">getTournamentBracketResults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usau_scraper.tournamentScraper.getTournamentPoolPlayResults"><code class="docutils literal notranslate"><span class="pre">getTournamentPoolPlayResults()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usau_scraper.tournamentScraper.getTournamentWinner"><code class="docutils literal notranslate"><span class="pre">getTournamentWinner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-usau_scraper.rankingScraper">Rankings Scraper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usau_scraper.rankingScraper.getClubRankings"><code class="docutils literal notranslate"><span class="pre">getClubRankings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usau_scraper.rankingScraper.getCollegeRankings"><code class="docutils literal notranslate"><span class="pre">getCollegeRankings()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html">developer documentation</a></li>
@@ -226,6 +237,216 @@ this URI and ignore other parameters.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-usau_scraper.tournamentScraper">
+<span id="tournament-scraper"></span><h2>Tournament Scraper<a class="headerlink" href="#module-usau_scraper.tournamentScraper" title="Permalink to this heading">¶</a></h2>
+<span class="target" id="module-tournamentScraper"></span><dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.tournamentScraper.getTournamentBracketResults">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.tournamentScraper.</span></span><span class="sig-name descname"><span class="pre">getTournamentBracketResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">competitionLevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genderDivision</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.tournamentScraper.getTournamentBracketResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTournamentBracketResults() returns the bracket results of a tournament.</p>
+<p>If the query returns multiple tournaments, returns the result of the first tournament that
+appears on the usau site which the query is issued.</p>
+<dl>
+<dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string) (required): The competition level of the tournament.
+Must be one of: Club, College, or High School.</p>
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string) (required): The gender division to view tournament results for.
+Must be one of: Women, Men, Mixed, Boys, Girls.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (string): The name of the tournament.</p>
+<p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the tournament was in.</p>
+<p><code class="docutils literal notranslate"><span class="pre">season</span></code> (int): The season that the tournament occured in.
+Must be after 2006</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">tournamentName</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">bracketName</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">roundName</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="n">date</span><span class="p">,</span>
+                    <span class="n">time</span><span class="p">,</span>
+                    <span class="n">field</span><span class="p">,</span>
+                    <span class="n">winner</span><span class="p">,</span>
+                    <span class="n">loser</span><span class="p">,</span>
+                    <span class="n">score</span><span class="p">,</span>
+                    <span class="n">status</span>
+                <span class="p">},</span>
+                <span class="o">...</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.tournamentScraper.getTournamentPoolPlayResults">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.tournamentScraper.</span></span><span class="sig-name descname"><span class="pre">getTournamentPoolPlayResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">competitionLevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genderDivision</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.tournamentScraper.getTournamentPoolPlayResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTournamentPoolPlayResults() returns the pool play and consolation results of a tournament.</p>
+<blockquote>
+<div><p>If the query returns multiple tournaments, returns the result of the first tournament that
+appears on the usau site which the query is issued.</p>
+</div></blockquote>
+<dl>
+<dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string) (required): The competition level of the tournament.
+Must be one of: Club, College, or High School.</p>
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string) (required): The gender division to view tournament results for.
+Must be one of: Women, Men, Mixed, Boys, Girls.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (string): The name of the tournament.</p>
+<p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the tournament was in.</p>
+<p><code class="docutils literal notranslate"><span class="pre">season</span></code> (int): The season that the tournament occured in.
+Must be after 2006</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">tournamentName</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">pools</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">poolName</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="n">name</span><span class="p">,</span>
+                    <span class="n">wins</span><span class="p">,</span>
+                    <span class="n">losses</span>
+                <span class="p">},</span>
+                <span class="o">...</span>
+            <span class="p">],</span>
+            <span class="o">...</span>
+        <span class="p">},</span>
+        <span class="n">rounds</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">roundName</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">sectionName</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="n">date</span><span class="p">,</span>
+                        <span class="n">time</span><span class="p">,</span>
+                        <span class="n">field</span><span class="p">,</span>
+                        <span class="n">team1Name</span><span class="p">,</span>
+                        <span class="n">team2Name</span><span class="p">,</span>
+                        <span class="n">score</span><span class="p">,</span>
+                        <span class="n">status</span>
+                    <span class="p">},</span>
+                    <span class="o">...</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.tournamentScraper.getTournamentWinner">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.tournamentScraper.</span></span><span class="sig-name descname"><span class="pre">getTournamentWinner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">competitionLevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genderDivision</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.tournamentScraper.getTournamentWinner" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTournamentWinner() returns the first and second place results of a tournament.</p>
+<p>If the query returns multiple tournaments, returns the result of the first tournament that
+appears on the usau site which the query is issued.</p>
+<dl>
+<dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">competitionLevel</span></code> (string) (required): The competition level of the tournament.
+Must be one of: Club, College, or High School.</p>
+<p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string) (required): The gender division to view tournament results for.
+Must be one of: Women, Men, Mixed, Boys, Girls.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (string): The name of the tournament.</p>
+<p><code class="docutils literal notranslate"><span class="pre">state</span></code> (string): Postal abbreviation of the state the tournament was in.</p>
+<p><code class="docutils literal notranslate"><span class="pre">season</span></code> (int): The season that the tournament occured in.
+Must be after 2006</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">tournamentName</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">firstPlace</span><span class="p">,</span>
+        <span class="n">secondPlace</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-usau_scraper.rankingScraper">
+<span id="rankings-scraper"></span><h2>Rankings Scraper<a class="headerlink" href="#module-usau_scraper.rankingScraper" title="Permalink to this heading">¶</a></h2>
+<span class="target" id="module-rankingScraper"></span><dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.rankingScraper.getClubRankings">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.rankingScraper.</span></span><span class="sig-name descname"><span class="pre">getClubRankings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.rankingScraper.getClubRankings" title="Permalink to this definition">¶</a></dt>
+<dd><p>getClubRankings() returns top 20 teams for inputted gender at the club competition level.</p>
+<dl>
+<dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): Women, Men, or Mixed (for Club only)</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">rank</span><span class="p">,</span>
+            <span class="n">team</span><span class="p">,</span>
+            <span class="n">powerRating</span><span class="p">,</span>
+            <span class="n">genderDivison</span><span class="p">,</span>
+            <span class="n">competitionDivision</span><span class="p">,</span>
+            <span class="n">city</span><span class="p">,</span>
+            <span class="n">state</span><span class="p">,</span>
+            <span class="n">clubRegion</span><span class="p">,</span>
+            <span class="n">clubSection</span><span class="p">,</span>
+            <span class="n">wins</span><span class="p">,</span>
+            <span class="n">losses</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="usau_scraper.rankingScraper.getCollegeRankings">
+<span class="sig-prename descclassname"><span class="pre">usau_scraper.rankingScraper.</span></span><span class="sig-name descname"><span class="pre">getCollegeRankings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#usau_scraper.rankingScraper.getCollegeRankings" title="Permalink to this definition">¶</a></dt>
+<dd><p>getCollegeRankings() returns top 20 teams for inputted gender at the college competition level.</p>
+<dl>
+<dt>Args:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">genderDivision</span></code> (string): Women, Men, or Mixed (for Club only)</p>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>results:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">OK</span><span class="p">,</span> <span class="n">NOTFOUND</span>
+    <span class="n">teams</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">rank</span><span class="p">,</span>
+            <span class="n">team</span><span class="p">,</span>
+            <span class="n">powerRating</span><span class="p">,</span>
+            <span class="n">competitionLevel</span><span class="p">,</span>
+            <span class="n">genderDivison</span><span class="p">,</span>
+            <span class="n">competitionDivision</span><span class="p">,</span>
+            <span class="n">collegeRegion</span><span class="p">,</span>
+            <span class="n">collegeConference</span><span class="p">,</span>
+            <span class="n">wins</span><span class="p">,</span>
+            <span class="n">losses</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

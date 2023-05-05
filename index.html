@@ -79,6 +79,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">package details</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="modules.html#module-usau_scraper.teamScraper">Team Scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-usau_scraper.tournamentScraper">Tournament Scraper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-usau_scraper.rankingScraper">Rankings Scraper</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html">developer documentation</a><ul>
@@ -91,20 +93,18 @@
 </div>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
-<p><code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">usau-scraper</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">usau-scraper</span></code></p>
 </div>
 <div class="section" id="how-to-use">
 <h1>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">¶</a></h1>
-<p>After installing the library, there are currently 3 functions available for use:
-<code class="docutils literal notranslate"><span class="pre">getTeamInfo</span></code>, <code class="docutils literal notranslate"><span class="pre">getTeamSchedule</span></code>, and <code class="docutils literal notranslate"><span class="pre">getTeamRoster</span></code>.</p>
-<p>Simply <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">usau_scraper</span></code>, and get started!</p>
+<p>Simply <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">usau_scraper</span> <span class="pre">import</span> <span class="pre">*</span></code>, and get started!</p>
 <p>More extensive module documentation is here:
 <a class="reference internal" href="modules.html#modules"><span class="std std-ref">package details</span></a></p>
 </div>
 <div class="section" id="example-usage">
 <h1>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h1>
 <p>After <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">usau-scraper</span></code> in your python env:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">usau_scraper</span> <span class="kn">import</span> <span class="n">getTeamInfo</span><span class="p">,</span> <span class="n">getTeamSchedule</span><span class="p">,</span> <span class="n">getTeamRoster</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">usau_scraper</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Get a team&#39;s basic information</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">getTeamInfo</span><span class="p">(</span>
@@ -121,6 +121,21 @@
 
 <span class="c1"># Get a team&#39;s roster for the current season</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">getTeamRoster</span><span class="p">(</span><span class="n">schoolName</span><span class="o">=</span><span class="s1">&#39;Columbia&#39;</span><span class="p">,</span> <span class="n">teamName</span><span class="o">=</span><span class="s1">&#39;Curbside&#39;</span><span class="p">))</span>
+
+<span class="c1"># Get the pool play results for a tournament</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTournamentPoolPlayResults</span><span class="p">(</span><span class="s2">&quot;College&quot;</span><span class="p">,</span> <span class="s2">&quot;Women&quot;</span><span class="p">,</span> <span class="n">eventName</span><span class="o">=</span><span class="s2">&quot;No Sleep Till Brooklyn&quot;</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="mi">2023</span><span class="p">))</span>
+
+<span class="c1"># Get the bracket results for a tournament</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTournamentBracketResults</span><span class="p">(</span><span class="s2">&quot;College&quot;</span><span class="p">,</span> <span class="s2">&quot;Women&quot;</span><span class="p">,</span> <span class="n">eventName</span><span class="o">=</span><span class="s2">&quot;Centex&quot;</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="mi">2022</span><span class="p">))</span>
+
+<span class="c1"># Get the winner for a tournament</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getTournamentWinner</span><span class="p">(</span><span class="s2">&quot;College&quot;</span><span class="p">,</span> <span class="s2">&quot;Women&quot;</span><span class="p">,</span> <span class="n">eventName</span><span class="o">=</span><span class="s2">&quot;Stanford Invite&quot;</span><span class="p">,</span> <span class="n">season</span><span class="o">=</span><span class="mi">2023</span><span class="p">))</span>
+
+<span class="c1"># Get the top 20 women&#39;s college teams</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getCollegeRankings</span><span class="p">(</span><span class="n">genderDivision</span><span class="o">=</span><span class="s2">&quot;Women&quot;</span><span class="p">))</span>
+
+<span class="c1"># Get the top 20 women&#39;s club teams</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getClubRankings</span><span class="p">(</span><span class="n">genderDivision</span><span class="o">=</span><span class="s2">&quot;Women&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Additional usage examples are <a class="reference external" href="https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=rEfGbe_ruqk4">in this notebook</a>.</p>
