@@ -91,6 +91,22 @@
 </ul>
 </div>
 </div>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>USAU (USA Ultimate) is the governing body of ultimate frisbee, and its website (which is notoriously hard to navigate)
+contains all of the information about high school, college, and club ultimate frisbee teams. Right now, there is no easy
+way to access this data. USAU scraper solves this problem by scraping the USAU website for data and therefore allowing
+other developers to easily use the data on the USAU site. This project will open the door to more data analytic projects
+concerning ultimate frisbee.</p>
+<dl class="simple">
+<dt>usau-scraper allows developers to easily access:</dt><dd><ul class="simple">
+<li><p>Team roster, schedule, and results data.</p></li>
+<li><p>Tournament results data, from all pool play results to just the first and second place winners of the tournament.</p></li>
+<li><p>Rankings data for the college and club levels.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <p><code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">usau-scraper</span></code></p>
@@ -136,6 +152,12 @@
 
 <span class="c1"># Get the top 20 women&#39;s club teams</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">getClubRankings</span><span class="p">(</span><span class="n">genderDivision</span><span class="o">=</span><span class="s2">&quot;Women&quot;</span><span class="p">))</span>
+
+<span class="c1"># Print the schedule for each top 20 team</span>
+<span class="n">teams</span> <span class="o">=</span> <span class="n">getCollegeRankings</span><span class="p">(</span><span class="n">genderDivision</span><span class="o">=</span><span class="s2">&quot;Women&quot;</span><span class="p">)[</span><span class="s2">&quot;teams&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">teams</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">getTeamSchedule</span><span class="p">(</span><span class="n">schoolName</span><span class="o">=</span><span class="n">team</span><span class="p">[</span><span class="s2">&quot;Team&quot;</span><span class="p">],</span> <span class="n">genderDivision</span><span class="o">=</span><span class="s1">&#39;Women&#39;</span><span class="p">,</span> <span class="n">competitionLevel</span><span class="o">=</span><span class="s1">&#39;College&#39;</span><span class="p">)[</span><span class="s2">&quot;teams&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Additional usage examples are <a class="reference external" href="https://colab.research.google.com/github/erin2722/usau-scraper/blob/main/examples/usau_scraper_example.ipynb#scrollTo=rEfGbe_ruqk4">in this notebook</a>.</p>
